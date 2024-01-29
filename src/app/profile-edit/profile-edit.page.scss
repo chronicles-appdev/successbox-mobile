@@ -1,0 +1,30 @@
+ion-header {
+  box-shadow: none;
+  margin: 1rem;
+  --border: none;
+
+  ion-toolbar {
+    --background: transparent;
+    border: none;
+
+    ion-title {
+      --border: none;
+    }
+  }
+
+
+
+}
+
+ion-button {
+  width: 12rem;
+  height: 1rem;
+  margin-top: 5rem;
+
+  --background: #383B4C;
+  position: absolute;
+  bottom: 0%;
+  left: 30%;
+  right: 40%;
+
+}

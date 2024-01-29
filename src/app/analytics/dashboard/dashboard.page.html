@@ -1,0 +1,305 @@
+<ion-header mode="ios" style="box-shadow: none;">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" slot="start" size="large" [routerLink]="['/tabs/home']"
+      style=""></ion-icon>
+    <ion-title class="ion-text-center">
+      Analytics Dashboard
+
+    </ion-title>
+
+<ion-icon name="aperture-outline" slot="end" size="large" color="primary" [class.roll-once]="iconRolled"
+  (click)="onReload()">
+</ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+      <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+    <ion-list>
+      <ion-item lines="none">
+        <ion-select label="Performance Summary"  (ionChange)="selected($event)"  interface="action-sheet" placeholder="Select Filter" cancelText="Cancel Choice">
+          <ion-select-option value="1">UTME Simulator</ion-select-option>
+          <ion-select-option value="2">WAEC Test Engine</ion-select-option>
+          <ion-select-option value="3">BECE Master Prep</ion-select-option>
+          <ion-select-option value="4">Common Entrance Prep</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+
+
+    </ion-list>
+  <!-- <ion-item   class="" lines="none" style="margin-top: 1rem;">
+    <h5 slot="start">Aggregate Performance</h5>
+
+    <ion-select slot="end" (ionChange)="selected($event)" style="border: 1px solid grey; border-radius: 0.5rem; padding-left: 1rem; padding-right: 1rem" class="ion-text-center always-flip"
+      toggleIcon="caret-down-sharp" interface="popover" placeholder="Filter">
+
+
+    </ion-select>
+  </ion-item> -->
+
+    <!-- <h3 *ngIf="level === 2" class="ion-text-center">WAEC Test Engine</h3>
+    <h3 *ngIf="level === 1" class="ion-text-center">UTME Simulator</h3>
+    <h3 *ngIf="level === 3" class="ion-text-center"> BECE MAster Prep</h3>
+    <h3 *ngIf="level === 4" class="ion-text-center"> Common Entrance Prep</h3> -->
+
+
+      <div class="testTaken"  *ngIf="level !== 0">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <h6 >Test Taken</h6>
+              <ion-text>{{ reportData.No_of_tests_taken }}</ion-text>
+            </ion-col>
+
+            <ion-col>
+                  <h6 >Test Passed</h6>
+                  <ion-text>{{ reportData.No_of_tests_passed }}</ion-text>
+            </ion-col>
+
+            <ion-col>
+                  <h6 >Test Failed</h6>
+                  <ion-text>{{ reportData.No_of_tests_failed }}</ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+
+
+      </div>
+
+
+<h4 class="subjT"  *ngIf="level !== 0">Your top 5 subject</h4>
+  <swiper-container [slidesPerView]="2.5" autoplay style="margin: 1rem">
+    <swiper-slide   *ngFor="let item of topSubject; let i = index"  [ngClass]="{'alternate-color': i % 4 === 1   || i % 4 === 3 || i % 4 === 0 || i % 4 === 2}">
+      <!-- <div lines="none" class="ion-text-center" >
+        <ion-icon name="pie-chart-outline" size="large"></ion-icon>
+        <h6 slot="start">Biology {{ i }}</h6>
+        <ion-text slot="end">{{ i+1 }}</ion-text>
+      </div> -->
+    <ion-item lines="none" class="ion-text-center d-flex align-items-center justify-content-between">
+      <ion-icon name="pie-chart-outline" color="white" size="medium" slot="start"></ion-icon>
+      <div class="d-flex flex-column align-items-end">
+        <h6 class="no-wrap">{{ item.subjectname }}</h6>
+        <ion-text>{{ item.score }}%</ion-text>
+      </div>
+    </ion-item>
+
+
+    </swiper-slide>
+
+
+  </swiper-container>
+
+<ion-grid>
+  <ion-row class="ion-padding">
+    <!-- <ion-col size="4" sizeLg="4" sizeMd="4" sizeXl="4" sizeSm="4" sizeXs="6">
+      <div class="testTaken">
+        <ion-item lines="none" class="">
+          <h6 slot="start">Test Taken</h6>
+          <ion-text slot="end">{{ reportData.No_of_tests_taken }}</ion-text>
+        </ion-item>
+
+        <ion-item lines="none" class="">
+          <h6 slot="start">Test Passed</h6>
+          <ion-text slot="end">{{ reportData.No_of_tests_passed }}</ion-text>
+        </ion-item>
+
+        <ion-item lines="none" class="">
+          <h6 slot="start">Test Passed</h6>
+          <ion-text slot="end">{{ reportData.No_of_tests_failed }}</ion-text>
+        </ion-item>
+
+
+
+      </div>
+    </ion-col> -->
+    <!-- <ion-col size="4" sizeLg="4" sizeMd="4" sizeXl="4" sizeSm="4" sizeXs="6">
+      <div class="testPassed">
+        <ion-row>
+          <ion-col size="8" style="margin-left: 4px;">
+            <h6>Test Failed</h6>
+          </ion-col>
+
+          <ion-col size="3" class="ion-text-right">
+            <ion-icon class="icon" name="book"></ion-icon>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row style="margin-top: 1rem;">
+          <ion-col size="9">
+            <ion-text>{{ reportData.No_of_tests_passed }}</ion-text>
+          </ion-col>
+
+          <ion-col size="3" class="ion-text-right">
+            <ion-icon name="arrow-forward" style="margin-right: 1.5rem;"></ion-icon>
+          </ion-col>
+
+
+
+        </ion-row>
+
+      </div>
+    </ion-col>
+    <ion-col size="4" sizeLg="4" sizeMd="4" sizeXl="4" sizeSm="4" sizeXs="6">
+      <div class="testFailed">
+        <ion-row>
+          <ion-col size="8" style="margin-left: 4px;">
+            <h6>Test Failed</h6>
+          </ion-col>
+
+          <ion-col size="3" class="ion-text-right">
+            <ion-icon class="icon" name="book"></ion-icon>
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row style="margin-top: 1rem;">
+          <ion-col size="9">
+            <ion-text>{{ reportData.No_of_tests_failed }}</ion-text>
+          </ion-col>
+
+          <ion-col size="3" class="ion-text-right">
+            <ion-icon style="margin-right: 1.5rem;" name="arrow-forward"></ion-icon>
+          </ion-col>
+
+
+
+        </ion-row>
+
+      </div>
+    </ion-col> -->
+
+
+
+
+  </ion-row>
+
+
+
+</ion-grid>
+
+
+
+  <ion-grid  *ngIf="level !== 0">
+    <ion-row>
+
+      <ion-col sizeXs="10" sizeSm="10" sizeMd="4" offsetSm="1" offsetXs="1">
+
+        <div style="display: block;">
+          <canvas baseChart [datasets]="pieChartDatasets" [labels]="pieChartLabels" [type]="'bar'">
+          </canvas>
+        </div>
+      </ion-col>
+
+
+      <ion-col sizeXs="10" sizeSm="10" sizeMd="4" offsetSm="1" offsetXs="1">
+
+        <div style="display: block;">
+          <canvas baseChart [datasets]="pieChartDatasets" [labels]="pieChartLabels" [type]="'pie'">
+          </canvas>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+  <div>
+
+    <div *ngIf="level === 2">
+
+      <ion-item>
+        <h3 class="ion-padding" slot="start">SuccessBox SSCE</h3>
+        <a href="/tabs/break/2" style="margin-top: 1rem;" slot="end">
+          view List
+        </a>
+      </ion-item>
+      <ion-grid class=" ion-padding contain">
+
+        <!-- Table body -->
+        <ion-row class=" ion-text-center" *ngFor="let item of reportsData">
+
+          <ion-col><ion-badge>{{ item.subject_name }}</ion-badge></ion-col>
+          <ion-col class="col-back">{{ item.year_name }}</ion-col>
+          <ion-col class="col-back " style="color: goldenrod">{{ ((item.correctly_answ * 100)/item.num_question |
+            number:'1.2-2')}}%</ion-col>
+          <ion-col class="col-back">{{ item.correctly_answ }} out of {{ item.num_question }}</ion-col>
+        </ion-row>
+
+
+      </ion-grid>
+
+    </div>
+
+
+
+      <div *ngIf="level === 1">
+
+
+
+          <ion-item>
+            <h3 class="ion-padding">SuccessBox UTME</h3>
+            <a href="/tabs/break/1" style="margin-top: 1rem;" slot="end">
+              view List
+            </a>
+          </ion-item>
+
+        <ion-grid class=" ion-padding contain">
+
+          <!-- Table body -->
+          <ion-row class=" ion-text-center" *ngFor="let item of reportsData1"  [routerLink]="['/tabs/break', 1]">
+
+            <ion-col><ion-badge>{{ item.subject_name }}</ion-badge></ion-col>
+            <ion-col class="col-back">{{ item.year_name }}</ion-col>
+            <ion-col class="col-back " style="color: goldenrod">{{ ((item.correctly_answ * 100)/item.num_question |
+              number:'1.2-2')}}%</ion-col>
+            <ion-col class="col-back">{{ item.correctly_answ }} out of {{ item.num_question }}</ion-col>
+          </ion-row>
+
+
+        </ion-grid>
+      </div>
+
+
+
+      <div *ngIf="level === 3">
+
+
+
+        <ion-item>
+          <h3 class="ion-padding">SuccessBox BECE</h3>
+          <a href="/tabs/break/3" style="margin-top: 1rem;" slot="end">
+            view List
+          </a>
+        </ion-item>
+
+      <ion-grid class=" ion-padding contain">
+
+        <!-- Table body -->
+        <ion-row class=" ion-text-center" *ngFor="let item of reportsData2"  [routerLink]="['/tabs/break', 3]">
+
+          <ion-col><ion-badge>{{ item.subject_name }}</ion-badge></ion-col>
+          <ion-col class="col-back">{{ item.year_name }}</ion-col>
+          <ion-col class="col-back " style="color: goldenrod">{{ ((item.correctly_answ * 100)/item.num_question |
+            number:'1.2-2')}}%</ion-col>
+          <ion-col class="col-back">{{ item.correctly_answ }} out of {{ item.num_question }}</ion-col>
+        </ion-row>
+
+
+      </ion-grid>
+
+      </div>
+  </div>
+
+
+
+</ion-content>

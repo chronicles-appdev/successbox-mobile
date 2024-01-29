@@ -1,0 +1,71 @@
+.position {
+  font-size: xx-large;
+  font-weight: bolder;
+  color: goldenrod;
+  padding: 1rem;
+}
+
+.alternate-color {
+  --background: #ECFEFF;
+  /* Use the first color for odd indices */
+}
+
+.alternate-color:nth-child(2n) {
+  --background: #FFEDE3;
+  /* Use the second color for even indices */
+}
+
+.alternate-color:nth-child(4n + 3) {
+  --background: #FFEAEA;
+  /* Use the third color for indices congruent to 3 modulo 4 */
+}
+
+.alternate-color:nth-child(4n) {
+  --background: #FFFEE3;
+  /* Use the fourth color for indices congruent to 0 modulo 4 */
+}
+
+.alternate-color1 {
+
+
+  padding: 2rem 1rem;
+  background-color: #ECFEFF;
+  border-radius: 3px;
+  padding-top: 0.1px;
+  width: 8rem;
+  height: 6rem;
+  margin: 0 5px;
+}
+
+.alternate-color1:nth-child(2n) {
+
+  padding: 2rem 1rem;
+  background-color: #FFEDE3;
+  border-radius: 3px;
+  padding-top: 0.1px;
+  width: 8rem;
+  height: 6rem;
+  margin: 0 5px;
+}
+
+.alternate-color1:nth-child(4n + 3) {
+
+  padding: 2rem 1rem;
+  background-color: #FFEAEA;
+  border-radius: 3px;
+  padding-top: 0.1px;
+  width: 8rem;
+  height: 6rem;
+  margin: 0 5px;
+}
+
+.alternate-color1:nth-child(4n) {
+
+  padding: 2rem 1rem;
+  background-color: #FFFEE3;
+  border-radius: 3px;
+  padding-top: 0.1px;
+  width: 8rem;
+  height: 6rem;
+  margin: 0 5px;
+}

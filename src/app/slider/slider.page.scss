@@ -1,0 +1,48 @@
+ion-content {
+
+  ion-card {
+      position: absolute;
+        top: 5%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        --box-shadow: 0;
+
+
+  }
+
+    .no-shadow {
+      --box-shadow: none;
+      box-shadow: var(--box-shadow);
+    }
+
+        swiper-container {
+
+          margin-top: 10rem;
+
+            --swiper-pagination-size: 10rem;
+           --swiper-pagination-color: #F88B2A;
+
+          swiper-slide {
+
+            h3 {
+              margin: 1rem;
+              text-align: center;
+            }
+            p{
+              margin-bottom: 5rem;
+              text-align: center;
+            }
+          }
+        }
+
+        .bottom {
+          margin-top: 3rem;
+        }
+}
+
+ion-footer
+{
+  --box-shadow: none;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}

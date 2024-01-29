@@ -1,0 +1,107 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Study Center</ion-title>
+    <!-- <ion-icon name="ellipsis-vertical" slot="start"  size="large" ></ion-icon> -->
+
+
+  <ion-icon name="aperture-outline" slot="end" size="large" color="primary" [class.roll-once]="iconRolled"
+    (click)="onReload()">
+  </ion-icon>
+
+
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="recent ion-padding">
+
+    <!-- <ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)"></ion-searchbar> -->
+
+
+
+    <h6>Recently Read</h6>
+    <ion-card class="shelf-card ">
+      <ion-grid>
+        <ion-row>
+
+          <ion-col sizeLg="2"  sizeMd="3" sizeSm="4" sizeXs="4"  *ngFor="let item of recentData" [routerLink]="['/tabs/book', item.id]">
+            <img [src]="item.subject_img">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card>
+  </div>
+
+
+<div class="ion-padding" *ngIf="paid !== 'true'" [routerLink]="['/tabs/subscription']">
+
+  <img src="../../assets/premium.png" width="100%">
+
+</div>
+
+<div class="ion-text-center">
+  <img src="../../assets/sbox.png" width="150px">
+</div>
+  <div class="recent">
+
+    <h6>All Books</h6>
+    <ion-card class="shelf-card ">
+      <ion-grid>
+        <ion-row>
+          <ion-col  sizeLg="2"   sizeMd="3" sizeSm="4" sizeXs="4"   *ngFor="let item1 of bookData" (click)="openBook(item1.id, item1.subject_name)" >
+            <img [src]="item1.subject_img">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+    <!-- <div *ngFor="let chunk of chunkedRecentData">
+      <ion-card class="shelf-card ">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4"   *ngFor="let item1 of chunk" [routerLink]="['/tabs/book', item1.id]">
+              <img [src]="item1.subject_img">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+
+
+    </div> -->
+
+
+
+<div>
+  <!-- {{ bookData[0]?.subject_name }} -->
+</div>
+
+
+<!--
+    <ion-card class="shelf-card ">
+      <ion-grid>
+        <ion-row>
+
+          <ion-col size="">
+            <img src="../../assets/gov.png" class="image-with-shadow">
+          </ion-col>
+
+          <ion-col size="">
+            <img src="../../assets/org.png" class="image-with-shadow">
+          </ion-col>
+
+          <ion-col size="">
+            <img src="../../assets/last.png" class="image-with-shadow">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card> -->
+  </div>
+
+</ion-content>

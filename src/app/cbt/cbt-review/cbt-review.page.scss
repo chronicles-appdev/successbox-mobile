@@ -1,0 +1,83 @@
+ion-header {}
+
+.centered-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //  flex: 1;
+  margin-top: -2rem;
+}
+
+.testarea {
+  padding: 1rem;
+  border-radius: 3px;
+  margin: 0.2rem;
+  margin-bottom: 3rem;
+  background: rgb(211, 210, 210);
+  .quest {
+    padding-left: 1rem;
+    width: 100%;
+    font-family: 'Space Grotesk';
+
+    align-items: center;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    h4 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 19px;
+    }
+  }
+
+  .options {
+    background: rgb(211, 210, 210);
+
+    ion-list {
+      background: rgb(211, 210, 210);
+      ion-radio-group {
+
+        ion-item {
+          // margin-bottom: 1rem;
+          border: 1px solid gray;
+          border-radius: 1rem;
+          //  margin: 0.2rem 0.3rem 0.2rem rem;
+          padding: 2px;
+
+
+        }
+      }
+    }
+  }
+
+
+}
+
+ion-modal {
+  --height: 50%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: rgb(14 116 144);
+  --color: white;
+}
+
+
+.custom-fab {
+  --background: transparent;
+  --color: var(--ion-color-primary);
+  --border: var(--ion-color-primary);
+  --border-radius: 1rem;
+  width: 11rem;
+}

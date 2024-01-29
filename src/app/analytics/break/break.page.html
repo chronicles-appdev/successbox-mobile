@@ -1,0 +1,31 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" slot="start" size="large" [routerLink]="['/tabs/dashboard']" style=""></ion-icon>
+    <ion-title>Test List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<div >
+
+
+    <h3 class="ion-padding" slot="end">SuccessBox SSCE</h3>
+
+  <ion-grid class=" ion-padding contain">
+
+    <!-- Table body -->
+    <ion-row class=" ion-text-center" style="margin-top: 0.5rem;" *ngFor="let item of reportsData" [routerLink]="['/tabs/cbt-review', item.id]">
+
+      <ion-col><ion-badge>{{ item.subject_name }}</ion-badge></ion-col>
+      <ion-col class="col-back">{{ item.year_name }}</ion-col>
+      <ion-col class="col-back " style="color: goldenrod">{{ ((item.correctly_answ * 100)/item.num_question |
+        number:'1.2-2')}}%</ion-col>
+      <ion-col class="col-back">{{ item.correctly_answ }} out of {{ item.num_question }}</ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+
+</div>
+
+</ion-content>

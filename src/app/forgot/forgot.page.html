@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true">
+  <ion-card class="no-shadow">
+    <ion-card-content>
+      <img src="../../assets/sbox.png">
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+
+  <ion-grid>
+    <ion-row>
+      <div class="signup">
+        <h2>Reset Password</h2>
+        <p>Reset your password to regain account access</p>
+      </div>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
+
+          <ion-list class="ion-padding">
+
+
+            <ion-input label="Phone Number" fill="outline" label-placement="floating"
+              errorText="Invalid Phone Number" formControlName="phone" ngModel email></ion-input>
+            <br>
+
+            <ion-button type="submit" expand="block">Reset Password</ion-button>
+            <br>
+
+            <p class="ion-text-center" style="margin-left: 1rem;">Don’t have an account?
+            </p>
+
+            <ion-button type="submit" expand="block" style=" --background: #383B4C;">Sign Up</ion-button>
+            <br>
+
+
+
+
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

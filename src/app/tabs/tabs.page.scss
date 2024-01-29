@@ -1,0 +1,44 @@
+ion-tabs {
+  --background: #0B57CF;
+
+  ion-tab-bar {
+    padding: 0.2rem;
+    // --background: #0B57CF;
+    // border-top-right-radius: 2rem;
+    // border-top-left-radius: 2rem;
+
+
+
+
+  }
+}
+
+ion-tab-button {
+  ion-icon::before {
+    font-weight: normal;
+    /* Set the icon to non-solid state by default */
+  }
+
+  &.ion-selected ion-icon::before {
+    color: goldenrod;
+    font-weight: bold;
+    /* Set the icon to the solid state when the tab is selected */
+  }
+}
+
+ion-tab-button {
+  // ion-label {
+  //   display: none;
+
+  // }
+
+  // &:active ion-label {
+  //   display: block;
+
+  // }
+
+  // &.ion-selected ion-label {
+  //   display: block;
+
+  // }
+}

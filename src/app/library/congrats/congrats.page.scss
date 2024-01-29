@@ -1,0 +1,32 @@
+ion-header {
+  box-shadow: none;
+}
+
+ion-content {
+
+  .body {
+    text-align: center;
+    position: relative;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      --box-shadow: 0;
+
+
+      ion-button {
+        padding: 2rem;
+      }
+  }
+
+    .sticky {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: fit-content;
+      height: fit-content;
+      transform: translate(0, 50%);
+      margin-bottom: 5rem;
+    }
+}

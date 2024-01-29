@@ -1,0 +1,107 @@
+ion-header {
+  ion-title {
+    margin-top: 1rem;
+  }
+}
+
+ion-content {
+
+  .contain {
+    border-top: 1px solid black;
+    padding-top: 2rem;
+    margin-top: 2rem;
+  }
+
+  ion-grid {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.7454px;
+    align-items: center;
+    color: #000000;
+
+    ion-row {
+      ion-col {
+        .testTaken {
+          border: 1px solid black;
+          color: white;
+          border-radius: 1rem;
+          margin-top: 1rem;
+          width: 95%;
+          height: 7rem;
+          background-color: rgb(54, 52, 52);
+
+          .left {
+            margin: 1rem;
+            float: left;
+          }
+
+          .right {
+            margin: 1rem;
+            float: right;
+
+
+          }
+        }
+
+        .testPassed {
+          border: 1px solid black;
+          color: white;
+          background-color: rgb(56, 55, 55);
+          border-radius: 1rem;
+          margin-top: 1rem;
+          width: 95%;
+          height: 7rem;
+
+          .left {
+            margin: 1rem;
+            float: left;
+          }
+
+          .right {
+            margin: 1rem;
+            float: right;
+
+            .icon {
+              display: block;
+              padding: 5px;
+              background-color: var(--ion-color-primary);
+              color: white;
+              border-radius: 2rem;
+              margin-bottom: 4rem;
+            }
+          }
+        }
+
+        .testFailed {
+          border: 1px solid rgb(49, 48, 48);
+          background-color: rgb(68, 67, 67);
+          color: white;
+          border-radius: 1rem;
+          margin-top: 1rem;
+          width: 95%;
+          height: 7rem;
+
+          .left {
+            margin: 1rem;
+            float: left;
+          }
+
+          .right {
+            margin: 1rem;
+            float: right;
+
+            .icon {
+              display: block;
+              padding: 10px;
+              background-color: var(--ion-color-primary);
+              color: white;
+              border-radius: 10rem;
+              margin-bottom: 4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

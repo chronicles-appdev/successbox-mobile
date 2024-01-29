@@ -1,0 +1,95 @@
+ion-header {
+  ion-title {
+    margin-top: 1rem;
+  }
+}
+
+.body {
+  margin-top: 2rem;
+}
+
+ .quest{
+   width: 85%;
+   margin-left: 1.5rem;
+   --background: #383B4C;
+   box-shadow: none;
+   border-radius: 1rem;
+    color: white;
+   ion-item {
+     --background: transparent;
+   }
+ }
+
+
+.options {
+  margin-top: 2rem;
+
+.opt {
+    width: 85%;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    --color: black;
+    --background: #EFF1F9;
+    box-shadow: none;
+    border-radius: 1rem;
+
+
+
+      // --background: transparent;
+
+
+      ion-radio {
+
+        white-space: normal;
+          height: auto;
+          overflow-x: visible;
+          --border-style: none;
+
+          --size: 2rem;
+          padding: 1rem;
+
+            --border-radius: 4px;
+              --inner-border-radius: 4px;
+              --color: #ddd;
+              --color-checked: var(--ion-color-primary);
+      }
+            ion-radio::part(container) {
+              width: 2rem;
+              height: 2rem;
+              background: #ddd;
+              border-radius: 4rem;
+
+            }
+
+
+            ion-radio.radio-checked::part(container) {
+              background: var(--ion-color-primary);;
+              border-color: transparent;
+            }
+
+
+  }
+}
+.fab {
+  width: 5rem;
+  height: 2rem;
+  --border-radius: 0.5rem;
+  --background: #383B4C;
+}
+
+.fab1 {
+  --background: #F88B2A;
+  width: 5rem;
+  height: 2rem;
+  --border-radius: 0.5rem;
+
+}
+
+
+.fab2 {
+  --background: #bd1b15;
+  width: 7rem;
+  height: 2rem;
+  --border-radius: 0.5rem;
+
+}

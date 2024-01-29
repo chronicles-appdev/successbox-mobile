@@ -1,0 +1,96 @@
+ion-header {
+  box-shadow: none;
+}
+
+ion-content {
+
+  .body {
+    text-align: center;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    --box-shadow: 0;
+  }
+.custom-spinner {
+  margin: 0 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  position: relative;
+  /* Adjust as needed */
+
+  .spinner-circle {
+    position: relative;
+    width: 4rem;
+    /* Adjust as needed */
+    height: 4rem;
+    /* Adjust as needed */
+    border-radius: 50%;
+    border: 8px solid green;
+    /* Adjust the border color */
+    border-top: 8px solid green;
+    /* Adjust the border color for progress */
+    // animation: spin 1s linear infinite;
+  }
+
+
+  .spinner-circle1 {
+    position: relative;
+    width: 5rem;
+    /* Adjust as needed */
+    height: 5rem;
+    /* Adjust as needed */
+    border-radius: 50%;
+    border: 8px solid red;
+    /* Adjust the border color */
+    border-top: 8px solid red;
+    /* Adjust the border color for progress */
+    // animation: spin 1s linear infinite;
+  }
+
+  .progress-label {
+    position: absolute;
+    top: 50%;
+    //left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: green;
+
+  }
+
+     .progress-label1 {
+
+       position: absolute;
+       top: 50%;
+       //left: 50%;
+       transform: translate(-50%, -50%);
+       font-size: 24px;
+       color: red;
+
+     }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.sticky {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  transform: translate(0, 50%);
+  margin-bottom: 5rem;
+}
+}

@@ -1,0 +1,97 @@
+ion-header {
+  box-shadow: none;
+  margin: 1rem;
+  --border: none;
+
+  ion-toolbar {
+    --background: transparent;
+    border: none;
+
+    ion-title {
+      --border: none;
+    }
+  }
+}
+
+ion-content {
+  margin-bottom: -50px;
+
+  ion-toolbar {
+    width: 100vw;
+    --background: transparent;
+    ion-icon {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    border-bottom: 1px solid black;
+  }
+
+  .chatarea {
+
+
+
+    .question{
+      margin: 2rem 0;;
+      border-bottom: 1px solid black;
+      padding: 1rem;
+      width: 100%;
+
+
+      ion-label {
+         // white-space: normal;*/
+          white-space: pre-wrap;
+          max-width: 100%;
+          /* Set a maximum width if needed */
+        }
+
+    }
+
+    .answer {
+      .layer1{
+        background: #383B4C;
+        color: white;
+        p {
+            margin: 0 2.5rem;
+            text-align: justify;
+            padding: 1rem 0;
+          }
+      }
+
+    }
+
+
+  }
+}
+
+ion-footer {
+/* your-component.page.scss */
+
+  .custom-chat-box {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border:1px solid #858282;
+    border-radius: 3px;
+    /* Adjust the background color as needed */
+  }
+
+  .custom-input {
+    flex: 1;
+    font-size: smaller;
+    border: none;
+    margin-right: 10px;
+ //   max-height: 10em;
+    min-height: 1em;
+    /* Adjust spacing between input and icon as needed */
+  }
+
+  .custom-send-icon {
+    font-size: 24px;
+    /* Adjust the icon size as needed */
+    color: black;
+    /* Adjust the icon color as needed */
+    cursor: pointer;
+  }
+
+}

@@ -1,0 +1,158 @@
+
+
+ion-content {
+
+.subjT {
+  margin-left: 5px;
+  margin-top: 1rem;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+
+  .contain {
+    border-top: 1px solid black;
+    // padding-top: 1rem;
+    //margin-top: 1rem;
+  }
+
+        .testTaken {
+
+          color: white;
+          text-align: center;
+          width: 100%;
+          height: 5rem;
+          background-color: #f9eae2;
+
+        }
+      .testPassed {
+        color: white;
+        background-color: #43bec2;
+        border-radius: 3px;
+        padding-top: 0.1px;
+        width: 95%;
+        height: 5rem;
+        }
+
+
+
+.alternate-color {
+ion-item {
+    color: white;
+    --ion-background-color: transparent;
+  }
+    color: white;
+      background-color: #496e70;
+      border-radius: 3px;
+      padding-top: 0.1px;
+      width: 95%;
+      height: 5rem;
+      margin: 0 5px;
+}
+
+.alternate-color:nth-child(2n) {
+
+    color: white;
+    background-color: #f07635;
+    border-radius: 3px;
+    padding-top: 0.1px;
+    width: 95%;
+    height: 5rem;
+    margin: 0 5px;
+}
+
+.alternate-color:nth-child(4n + 3) {
+
+  color: white;
+    background-color: #fb6868;
+    border-radius: 3px;
+    padding-top: 0.1px;
+    width: 95%;
+    height: 5rem;
+    margin: 0 5px;
+}
+
+.alternate-color:nth-child(4n) {
+
+  color: white;
+    background-color: #9a950d;
+    border-radius: 3px;
+    padding-top: 0.1px;
+    width: 95%;
+    height: 5rem;
+    margin: 0 5px;
+}
+
+
+
+  ion-grid {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.7454px;
+    align-items: center;
+    color: #000000;
+
+
+
+      .testPassed {
+        // border: 1px solid black;
+        color: white;
+        background-color: #2a878b;
+        border-radius: 1rem;
+        // margin-top: 1rem;
+        width: 95%;
+        height: 7rem;
+
+        .left {
+          margin: 1rem;
+          float: left;
+        }
+
+        .right {
+          margin: 1rem;
+          float: right;
+
+          .icon {
+            display: block;
+            padding: 5px;
+            background-color: var(--ion-color-primary);
+            color: white;
+            border-radius: 2rem;
+            margin-bottom: 4rem;
+          }
+        }
+      }
+
+      .testFailed {
+        // border: 1px solid rgb(49, 48, 48);
+        background-color: #fc5d5d;
+        color: white;
+        border-radius: 1rem;
+        // margin-top: 1rem;
+        width: 95%;
+        height: 7rem;
+
+        .left {
+          margin: 1rem;
+          float: left;
+        }
+
+        .right {
+          margin: 1rem;
+          float: right;
+
+          .icon {
+            display: block;
+            padding: 10px;
+            background-color: var(--ion-color-primary);
+            color: white;
+            border-radius: 10rem;
+            margin-bottom: 4rem;
+          }
+        }
+      }
+  }
+}

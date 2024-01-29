@@ -1,0 +1,39 @@
+
+  ion-card {
+      position: absolute;
+        top: 40%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        --box-shadow: 0;
+
+  }
+
+    .no-shadow {
+      --box-shadow: none;
+      box-shadow: var(--box-shadow);
+    }
+
+    ion-label {
+      color: #003F7D;
+
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 15px;
+        /* 107.143% */
+    }
+
+
+.sticky {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  transform: translate(0, 50%);
+  margin-bottom: 2rem;
+}

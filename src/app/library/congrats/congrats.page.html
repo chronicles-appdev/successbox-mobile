@@ -1,0 +1,29 @@
+<ion-header mode="md">
+  <ion-toolbar>
+    <!-- <ion-icon name="chevron-back-outline" slot="start" size="large" [routerLink]="['/tabs/test', 3]"></ion-icon> -->
+
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <div class="body">
+    <img src="../../../assets/congrats.png">
+
+    <h4>Congratulations!!</h4>
+    <p>Click the button below to check your result</p>
+
+    <ion-button size="large" [routerLink]="['/tabs/score', topic_id]">
+      CHECK SCORE
+    </ion-button>
+  </div>
+
+
+<ion-label class="sticky">
+  <ion-img src="https://chroniclesoft.com/logo.png"></ion-img>
+</ion-label>
+
+</ion-content>

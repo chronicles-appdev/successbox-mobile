@@ -1,0 +1,101 @@
+
+
+<ion-content [fullscreen]="true">
+  <ion-card class="no-shadow">
+    <ion-card-content>
+      <img src="../../assets/sbox.png">
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-grid>
+    <ion-row>
+      <div class="signup">
+        <h2>Sign Up</h2>
+        <p>Create an account with us today!</p>
+      </div>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
+
+          <ion-list class="ion-padding">
+
+            <ion-input label="Firstname" label-placement="floating" fill="outline" placeholder="Enter your Firstname"
+              errorText="Invalid Firstname" formControlName="firstname" ngModel firstname></ion-input>
+
+            <br>
+
+
+
+            <ion-input placeholder="Enter your Lastname" label="Lastname" fill="outline" label-placement="floating"
+              errorText="Invalid Lastname" formControlName="lastname" ngModel lastname></ion-input>
+            <br>
+
+
+            <ion-input placeholder="Enter your Email Address" label="Email" fill="outline" label-placement="floating"
+              errorText="Invalid email" formControlName="email" ngModel email></ion-input>
+            <br>
+
+
+            <ion-input placeholder="Enter your Phone Number"  label="Phone Number"  fill="outline"  label-placement="floating"
+                  errorText="Invalid Phone Number" formControlName="phone" ngModel phone></ion-input>
+              <br>
+
+                <ion-select aria-label="Level" placeholder="Select Level" (ionChange)="handleChange($event)"  fill="outline" formControlName="levelid" ngModel levelid>
+                  <ion-select-option value="primary">Primary</ion-select-option>
+                    <ion-select-option value="secondary">Secondary</ion-select-option>
+                      <!-- <ion-select-option value="tertiary">Tertiary</ion-select-option> -->
+                </ion-select>
+
+                  <br>
+
+                  <ion-select aria-label="Your Class" placeholder="Select your Class"  fill="outline" formControlName="classid" ngModel classid>
+                    <ion-select-option *ngFor="let item of classData" [value]="item.id">{{ item.class_name }}</ion-select-option>
+                  </ion-select>
+
+                  <br>
+
+
+                  <ion-select aria-label="Your State" placeholder="Select your State" fill="outline" formControlName="state" ngModel
+                    state>
+                    <ion-select-option *ngFor="let item of stateData" [value]="item.id">{{ item }}</ion-select-option>
+                  </ion-select>
+
+                  <br>
+
+
+            <ion-input placeholder="Create a Password" type="password" label="Create Password" fill="outline"
+              label-placement="floating" errorText="Invalid Password" formControlName="password" [counter]="true" ngModel
+              password></ion-input>
+            <br>
+
+            <ion-input placeholder="Confirm Password" type="password" label="Confirm Password" fill="outline"
+              label-placement="floating" errorText="Invalid Password" formControlName="cpassword" [counter]="true" ngModel
+              cpassword></ion-input>
+            <br>
+
+            <ion-button type="submit" expand="block">Get Started</ion-button>
+            <br>
+
+                <p class="ion-text-center" style="margin-left: 1rem;">Alreday have an Account?
+                </p>
+
+            <ion-button [routerLink]="['/login']" expand="block" style=" --background: #383B4C;">Log In</ion-button>
+            <br>
+
+
+
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

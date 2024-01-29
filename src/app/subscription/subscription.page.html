@@ -1,0 +1,67 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="ion-text-center signup" >
+    <img src="../../assets/sbox.png">
+
+
+  </div>
+<div class="ion-padding">
+    <h2>Subscribe Here</h2>
+    <p>Select the most prefered subscription plan from the options below</p>
+</div>
+  <div class="item">
+
+
+    <ion-item button lines="none">
+      <ion-label slot="start">
+        <h3>
+          Monthly plan
+        </h3>
+
+
+
+      </ion-label>
+      <ion-label slot="end">&#8358;2,500</ion-label>
+    </ion-item>
+
+    <ion-item button lines="none">
+      <ion-label slot="start">
+        <h3>
+          Termly plan
+        </h3>
+
+
+
+      </ion-label>
+      <ion-label slot="end">&#8358;6,000</ion-label>
+    </ion-item>
+    <ion-item button lines="none" >
+      <ion-label slot="start">
+        <h3>
+          Yearly plan
+        </h3>
+
+
+
+      </ion-label>
+      <ion-label slot="end">&#8358;20,000</ion-label>
+    </ion-item>
+
+  </div>
+
+  <div>
+
+
+    <ion-button (click)="openCapacitorSite('https://sboxv2.ulearnlms.net/public/payment')"> Subscribe here</ion-button>
+
+
+
+    <!-- <a [routerLink]="['/tabs/home']"> Back home </a> -->
+
+  </div >
+  <!-- <ion-button  *ngIf="paid === 'true'"  fill="outline" >Dashboard</ion-button> -->
+
+
+
+
+</ion-content>

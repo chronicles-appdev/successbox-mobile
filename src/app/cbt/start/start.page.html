@@ -1,0 +1,95 @@
+<ion-header mode="ios" style="box-shadow: none;">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" slot="start" size="large"
+      [routerLink]="['/tabs/first']" ></ion-icon>
+    <ion-title class="ion-text-center">
+    Select Test Type
+
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <div class="ion-text-center ion-padding title">
+
+
+        Choose the type of test you want to take.
+
+  </div>
+
+
+  <div class="ion-padding" *ngIf="paid !== 'true'" [routerLink]="['/tabs/subscription']">
+
+    <img src="../../assets/premium.png" width="100%">
+
+  </div>
+
+
+  <ion-grid>
+
+
+    <ion-row>
+      <ion-col>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="startTest()">
+
+          <ion-list class="middle ion-text-center">
+
+
+
+
+            <ion-select aria-label="Test type" placeholder="Test type"  fill="outline"
+              formControlName="testtype" ngModel testtype>
+              <ion-select-option *ngFor="let item of testTypeData" [value]="item.id">{{ item.test_type_name
+                }}</ion-select-option>
+                  <!-- <ion-select-option value="1">Speed Test</ion-select-option>
+                  <ion-select-option value="2">Standard Test</ion-select-option> -->
+            </ion-select>
+
+            <br>
+
+
+            <ion-select aria-label="Subjects" placeholder="Subject" (ionChange)="handleChange($event)" fill="outline"
+              formControlName="subject" ngModel subject>
+              <span  *ngFor="let item of subjectData">
+                  <ion-select-option [disabled]="checkUrl(item.id, item.subjectname)" [value]="item.id">{{ item.subjectname
+                    }}
+                  </ion-select-option>
+              </span>
+
+            </ion-select>
+
+            <br>
+
+            <ion-select aria-label="Question Bank" placeholder="Question Bank" fill="outline" formControlName="qset"
+              ngModel qset>
+              <ion-select-option *ngFor="let item of qSetData" [value]="item.id">{{ item.yearname
+                }}</ion-select-option>
+            </ion-select>
+
+            <br>
+
+
+
+            <ion-button type="submit" style="width: 50vw; height: 50px">
+              Get Started
+            </ion-button>
+            <br>
+
+
+
+          </ion-list>
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+</ion-content>

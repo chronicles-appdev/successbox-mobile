@@ -1,0 +1,147 @@
+<ion-header >
+  <ion-toolbar>
+
+    <ion-button [routerLink]="['/tabs/dashboard']" fill="outline" slot="end">
+      <ion-icon name="analytics-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="centered-badge">
+    <ion-badge class="ion-text-center" style="margin-top: 3rem;">
+      Test Review
+    </ion-badge>
+  </div>
+  <!-- <ion-label>
+  <a href="/home" style="text-decoration: none; margin: 1rem; float: right;"><ion-icon name="chevron-back-outline"></ion-icon> Back to Dashboard</a>
+</ion-label> -->
+
+  <ng-container *ngFor="let ind of scoreData; let i= index">
+
+    <div class="testarea">
+
+      <div class="quest">
+        <h4>Question {{ i + 1 }} </h4>
+        <h5> {{ ind.questionText }} </h5>
+        <div *ngIf="ind.image !== 'None' ">
+
+          <ion-img src="https://ulearnlms.net/common-entrance/images/{{ ind.images }}"
+          ></ion-img>
+        </div>
+
+      </div>
+      <div class="options">
+        <ion-list>
+
+
+          <div style="margin: 1rem;">
+            <span style="float: left;">
+              <h6>Your Option</h6>
+              <span *ngIf="ind.selected_option === 'A' ">
+
+                <ion-badge style="white-space: normal; background-color: #a35e08;">(A) {{ind.optionA}}</ion-badge>
+              </span>
+              <span *ngIf="ind.selected_option === 'B' ">
+
+                <ion-badge style="white-space: normal; background-color: #a35e08;">(B) {{ind.optionB}}</ion-badge>
+              </span>
+              <span *ngIf="ind.selected_option === 'C' ">
+
+                <ion-badge style="white-space: normal; background-color: #a35e08;">(C) {{ind.optionC}}</ion-badge>
+              </span>
+              <span *ngIf="ind.selected_option === 'D' ">
+
+                <ion-badge style="white-space: normal; background-color: #a35e08;">(D) {{ind.OptionD}}</ion-badge>
+              </span>
+              <span *ngIf="ind.selected_option === ind.correct_option">
+
+                <ion-label><ion-icon name="checkmark-done-circle-outline" size="large"
+                    style="color: green"></ion-icon></ion-label>
+              </span>
+            </span>
+
+
+            <span style="float: right;">
+              <h6>Answer</h6>
+              <span *ngIf="ind.correct_option === 'A' ">
+
+                <ion-badge style="white-space: normal; background-color: #1BA070;">(A) {{ind.optionA}}</ion-badge>
+              </span>
+              <span *ngIf="ind.correct_option === 'B' ">
+
+                <ion-badge style="white-space: normal; background-color: #1BA070;">(B) {{ind.optionB}}</ion-badge>
+              </span>
+              <span *ngIf="ind.correct_option === 'C' ">
+
+                <ion-badge style="white-space: normal; background-color: #1BA070;">(C) {{ind.optionC}}</ion-badge>
+              </span>
+              <span *ngIf="ind.correct_option === 'D' ">
+
+                <ion-badge style="white-space: normal; background-color: #1BA070;">(D) {{ind.OptionD}}</ion-badge>
+              </span>
+            </span>
+
+          </div>
+
+
+
+        </ion-list>
+
+      </div>
+
+      <div class="ion-padding text-justify">
+        <h3>Explanation</h3>
+        <span>
+          {{ind.explanation}}
+        </span>
+        <!-- <ion-button fill="outline" id="open-modal{{ i }}" expand="block">Open Modal</ion-button>
+
+
+        <ion-modal #modal trigger="open-modal{{ i }}" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-title>Explanation</ion-title>
+                <ion-buttons slot="end">
+                  <ion-button (click)="modal.dismiss()">Close</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+                <ion-button (click)="modal.dismiss()">Close</ion-button>
+              <span>
+                {{ind.explanation}}
+              </span>
+            </ion-content>
+          </ng-template>
+        </ion-modal> -->
+
+      </div>
+    </div>
+
+
+
+  </ng-container>
+
+  <ion-modal #modal trigger="myModal">
+    <ng-template>
+      <ion-content>
+        <ion-button fill="outline" (click)="closeModal()">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+        <ion-img [src]="modalImage"></ion-img>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="scrollToTop()">
+      <ion-icon name="chevron-up-outline"></ion-icon>
+
+    </ion-fab-button>
+
+  </ion-fab>
+
+</ion-content>

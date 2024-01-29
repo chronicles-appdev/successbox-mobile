@@ -4,28 +4,28 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #F88B2A;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-shade: #F19E50;
+  --ion-color-primary-tint: #B3ACB6;
 
   /** secondary **/
-  --ion-color-secondary: #3dc2ff;
+  --ion-color-secondary: #CE4661;
   --ion-color-secondary-rgb: 61, 194, 255;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #36abe0;
-  --ion-color-secondary-tint: #50c8ff;
+  --ion-color-secondary-shade: #383B4C;
+  --ion-color-secondary-tint: #383B4C;
 
   /** tertiary **/
-  --ion-color-tertiary: #5260ff;
+  --ion-color-tertiary: #CE4661;
   --ion-color-tertiary-rgb: 82, 96, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
   --ion-color-tertiary-shade: #4854e0;
-  --ion-color-tertiary-tint: #6370ff;
+  --ion-color-tertiary-tint: #383B4C;
 
   /** success **/
   --ion-color-success: #2dd36f;
@@ -76,13 +76,13 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
-@media (prefers-color-scheme: dark) {
+// @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
    * -------------------------------------------
    */
 
-  body {
+  body[color-theme="dark"] {
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
@@ -152,7 +152,7 @@
    * -------------------------------------------
    */
 
-  .ios body {
+ .ios body[color-theme="dark"] {
     --ion-background-color: #000000;
     --ion-background-color-rgb: 0,0,0;
 
@@ -196,7 +196,7 @@
    * -------------------------------------------
    */
 
-  .md body {
+.md body[color-theme="dark"] {
     --ion-background-color: #121212;
     --ion-background-color-rgb: 18,18,18;
 
@@ -233,10 +233,10 @@
 
     --ion-card-background: #1e1e1e;
   }
-}
+//}
 
 html {
-  /* 
+  /*
    * For more information on dynamic font scaling, visit the documentation:
    * https://ionicframework.com/docs/layout/dynamic-font-scaling
    */

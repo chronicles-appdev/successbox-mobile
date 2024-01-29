@@ -1,0 +1,33 @@
+ion-content {
+  overflow: hidden;
+
+  ion-card {
+    position: absolute;
+    top: 5%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    --box-shadow: 0;
+  }
+
+  .no-shadow {
+    --box-shadow: none;
+    box-shadow: var(--box-shadow);
+  }
+
+  .signup {
+    margin-top: 7rem;
+
+    margin-left: 1rem;
+  }
+
+  ion-input {
+    --border-radius: 1rem;
+  }
+
+  ion-button {
+
+    height: 3rem;
+    --border-radius: 1rem;
+    --box-shadow: 3rem;
+  }
+}

@@ -1,0 +1,58 @@
+<ion-content [fullscreen]="true">
+  <ion-card class="no-shadow">
+    <ion-card-content>
+      <img src="../../assets/sbox.png">
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-grid>
+    <ion-row>
+      <div class="signup">
+        <h2>Log In</h2>
+        <p>We are glad to see you back!</p>
+      </div>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="loginUser()">
+
+          <ion-list class="ion-padding">
+
+
+            <ion-input placeholder="Enter your Email Address" label="Email" fill="outline" label-placement="floating"
+              errorText="Invalid email" formControlName="email" ngModel email></ion-input>
+            <br>
+
+            <ion-input placeholder="Password" type="password" label=" Password" fill="outline"
+              label-placement="floating" errorText="Invalid Password" formControlName="password" [counter]="true"
+              ngModel password></ion-input>
+
+            <p><a href="" style="text-decoration: none;">Forgot Password?</a></p>
+            <br>
+
+            <ion-button type="submit" expand="block">Log In</ion-button>
+            <br>
+
+            <p class="ion-text-center" style="margin-left: 1rem;">Don’t have an account?
+            </p>
+
+            <ion-button [routerLink]="['/create']" expand="block" style=" --background: #383B4C;">Sign Up</ion-button>
+            <br>
+
+
+
+
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

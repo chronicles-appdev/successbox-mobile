@@ -1,0 +1,81 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" slot="start" size="large" [routerLink]="['/tabs/start']"></ion-icon>
+    <ion-title class="ion-text-center">
+      Score Sheet
+
+    </ion-title>
+
+    <ion-icon name="document-text-outline"  slot="end" size="large" color="primary" [routerLink]="['/tabs/cbt-review', tt_id]"></ion-icon>
+    <!-- <ion-icon name="pie-chart-outline"> -->
+    <!-- </ion-icon> -->
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <div class="body">
+    <img *ngIf="total <= 50" src="../../../assets/result1.png" height="120px" width="120px">
+  <img  *ngIf="total > 50" src="../../../assets/result.png"  height="120px" width="120px">
+    <p style="margin-top: 1rem; margin-bottom: 2rem" >Your percentage score is: </p>
+    <!-- <h1 *ngIf="total <= 50" style="color: red;">{{ total | number:'1.2-2' }}%</h1>
+
+    <h1  *ngIf="total > 50"  style="color: green;">{{ total | number:'1.2-2' }}%</h1> -->
+
+      <div style="margin-bottom: 4rem;">
+          <ion-label *ngIf="total <= 50" class="ion-text-center custom-spinner">
+
+            <ion-label class="spinner-circle1" *ngIf="total !== null">
+              <ion-label class="progress-label1">{{ total }}%</ion-label>
+            </ion-label>
+          </ion-label>
+
+          <ion-label *ngIf="total > 50" class="ion-text-center custom-spinner">
+
+            <ion-label class="spinner-circle" *ngIf="total !== null">
+              <ion-label class="progress-label">{{ total }}%</ion-label>
+            </ion-label>
+          </ion-label>
+
+      </div>
+
+        <div style="margin-top: 5px; margin-bottom: 10px;">
+            <!-- <p class="margin-top: 5rem;" *ngIf="total > 50">Hurray!!!, Keep it up</p> -->
+            <!-- <p *ngIf="total <= 50">you can do better try again!! </p> -->
+
+
+
+            <ion-label style="color: green; margin-top: 1rem">
+              <ion-icon name="checkmark-done-circle-outline"></ion-icon> No.of
+              correctly answered: <span>{{ scoreData.correctly_answered }}</span></ion-label>
+            <br>
+
+            <ion-label style="color: red">
+
+              <ion-icon name="close-circle-outline"></ion-icon> No.of wrongly answered: <span>{{
+                scoreData.total_questions - scoreData.correctly_answered }}</span></ion-label>
+            <br>
+            <h5 style="">Total Questions: <span>{{ scoreData.total_questions }}</span></h5>
+
+        </div>
+
+    <div style="margin-top: 2rem;">
+
+      <!-- <a [routerLink]="['/tabs/dashboard', tt_id]">
+        <ion-icon name="home"></ion-icon>&nbsp;
+       Dashboard
+      </a> -->
+
+      &nbsp;&nbsp;
+      <ion-button fill="outline" [routerLink]="['/tabs/cbt-review', tt_id]">
+          <ion-icon name="book"></ion-icon>&nbsp;Continue to review
+      </ion-button>
+
+    </div>
+  </div>
+
+<ion-label class="sticky">
+  <ion-img src="../../../assets/sbox.png"></ion-img>
+</ion-label>
+</ion-content>

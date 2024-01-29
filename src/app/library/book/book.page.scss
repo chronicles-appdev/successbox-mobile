@@ -1,0 +1,224 @@
+.top {
+  margin-top: 1rem;
+
+  ion-card {
+      width: 85%;
+      margin-left: 1.5rem;
+      --background: #EFF1F9;
+      box-shadow: none;
+      // height: 9rem;
+      border-radius: 1rem;
+
+      ion-item {
+        --background: transparent;
+      }
+
+    }
+
+
+
+        // .image-col {
+        //   position: relative;
+        //   overflow:visible;
+        //   padding: 0;
+        //   z-index: 1;
+        // }
+
+        // .overflow-image {
+        //   position: absolute;
+        //   top: -30%;
+        //   left: 0;
+        //   width: 100%;
+        //   height: auto;
+        //   z-index: 1;
+        //   //transform: translateY(-50%);
+        // }
+
+}
+
+.recent {
+  margin: 0 auto;
+  h6 {
+    margin-left: 1.5rem;
+  }
+
+    ion-card {
+      width: 85%;
+      margin-left: 1.5rem;
+      --background: #f7f8fa;
+      box-shadow: none;
+      height: 8rem;
+      border-radius: 0.5rem;
+      ion-item{
+        --background: transparent;
+      }
+    }
+  .topics {
+
+      margin: 1rem;
+      margin-top: 5rem;
+      width: 80%;
+      height: 91.032px;
+      flex-shrink: 0;
+      border-radius: 8.925px;
+      background: var(--sb-bg-1, #EFF1F9);
+      display: flex;
+      // flex-direction: column;
+  }
+
+
+
+    .container {
+
+    }
+
+    .image-part {
+      position: relative;
+      overflow: hidden;
+      height: 150px;
+      width: 50%;
+      /* Set height for the image part */
+    }
+
+    .overflow-image {
+      position: absolute;
+      top: 0;
+      text-align: center;
+      transform: translateY(-50%);
+      width: 80%;
+
+    }
+
+    .text-part {
+      padding: 1rem;
+      width: 50%;
+
+    }
+
+}
+ion-fab-button {
+  width: 15rem;
+  --border-radius: 1rem;
+
+}
+
+
+.box {
+  margin-top: 60px;
+  position: relative;
+  width: 100vw;
+}
+
+.image {
+  position: absolute;
+  top: -50px;
+  left: 10px;
+  // background-color: black;
+  width: 8rem;
+  height: 10rem;
+  // border: 2px solid black;
+  box-shadow: 2rem;
+}
+
+.book {
+  background-color: #EFF1F9;
+  width: 93%;
+  height: 8rem;
+  border: 2px solid #EFF1F9;
+  padding-left: 10rem;
+  border-radius: 1rem;
+
+  ion-item {
+    --background: transparent;
+  }
+}
+
+/* your-component.component.scss */
+
+.custom-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  height: 2rem;
+  position: relative;
+  /* Adjust as needed */
+
+  .spinner-circle {
+    position: relative;
+    width: 4rem;
+    /* Adjust as needed */
+    height: 4rem;
+    /* Adjust as needed */
+    border-radius: 50%;
+    border: 8px solid #F88B2A;
+    /* Adjust the border color */
+    border-top: 8px solid #F88B2A;
+    /* Adjust the border color for progress */
+   // animation: spin 1s linear infinite;
+  }
+
+
+    .spinner-circle1 {
+      position: relative;
+      width: 4rem;
+      /* Adjust as needed */
+      height: 4rem;
+      /* Adjust as needed */
+      border-radius: 50%;
+      border: 8px solid #ccc;
+      /* Adjust the border color */
+      border-top: 8px solid #ccc;
+      /* Adjust the border color for progress */
+      // animation: spin 1s linear infinite;
+    }
+
+  .progress-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #F88B2A;
+
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.ion-card-content-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ion-label-left {
+  text-align: left;
+}
+
+
+.alternate-color {
+  background-color: #ECFEFF;
+  /* Use the first color for odd indices */
+}
+
+.alternate-color:nth-child(2n) {
+  background-color: #FFEDE3;
+  /* Use the second color for even indices */
+}
+
+.alternate-color:nth-child(4n + 3) {
+  background-color: #FFEAEA;
+  /* Use the third color for indices congruent to 3 modulo 4 */
+}
+
+.alternate-color:nth-child(4n) {
+  background-color: #FFFEE3;
+  /* Use the fourth color for indices congruent to 0 modulo 4 */
+}

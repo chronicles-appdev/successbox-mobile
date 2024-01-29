@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-icon name="chevron-back-outline" [routerLink]="['/tabs/profile']" slot="start"
+      style="font-size: 2rem;"></ion-icon>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <form [formGroup]="registrationForm" (ngSubmit)="editUser()">
+
+      <ion-list class="ion-padding" style="margin-top: 2rem;">
+
+        <ion-input label="Firstname" label-placement="floating" fill="outline" placeholder="Jane"
+          errorText="Invalid Firstname" formControlName="firstname" ngModel firstname></ion-input>
+
+        <br>
+
+
+
+        <ion-input placeholder="Enter your Lastname" label="Lastname" fill="outline" label-placement="floating"
+          errorText="Invalid Lastname" formControlName="lastname" ngModel lastname></ion-input>
+        <br>
+
+
+        <ion-input placeholder="Enter your Email Address" label="Email" fill="outline" label-placement="floating"
+          errorText="Invalid email" formControlName="email" ngModel email></ion-input>
+        <br>
+
+
+        <ion-input placeholder="Enter your Phone Number" label="Phone Number" fill="outline" label-placement="floating"
+          errorText="Invalid Phone Number" formControlName="phone" ngModel phone></ion-input>
+        <br>
+
+
+        <h3 class="ion-padding">Change Password</h3>
+
+
+
+        <ion-input placeholder="Create a Password" type="password" fill="outline"  label="Create Password"
+          label-placement="floating" errorText="Invalid Password" formControlName="password" [counter]="true" ngModel
+          password></ion-input>
+        <br>
+
+
+        <ion-input placeholder="Confirm Password" type="password" label="Confirm Password" fill="outline"
+          label-placement="floating" errorText="Invalid Password" formControlName="cpassword" [counter]="true" ngModel
+          cpassword></ion-input>
+        <br>
+
+
+
+        <ion-button type="submit" expand="block">Save changes</ion-button>
+        <br>
+
+
+      </ion-list>
+    </form>
+
+</ion-content>

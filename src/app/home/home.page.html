@@ -1,20 +1,320 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+
+<ion-content class="ion-padding">
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+   <div class="ion-text-center">
+       <img src="../../assets/sbox.png" width="150px">
+   </div>
+  <div class="recent"  style="">
+    <ion-item lines="none">
+    <ion-avatar aria-hidden="true" slot="start"   [routerLink]="['/tabs/profile']">
+      <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+    <ion-label   [routerLink]="['/tabs/profile']">{{ firstname }} {{ lastname }}</ion-label>
+
+
+    <ion-icon name="chatbubbles" [routerLink]="['/chat']" slot="end" color="black"></ion-icon>
+
+
+    </ion-item>
+
+
+
+
+
+  <ion-card class="ion-card"   *ngIf="loadNext === true">
+
+    <swiper-container  autoplay >
+
+      <swiper-slide  *ngFor="let item of quoteData">
+        <ion-card-header class="ion-text-center">
+
+        <ion-card-subtitle class="ion-card-subtitle">Quotes For Today</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+       {{ item.quote }}
+      </ion-card-content>
+
+    </swiper-slide>
+
+    </swiper-container>
+  </ion-card>
+
+
+  <div   *ngIf="loadNext === true">
+    <div *ngIf="recentData.length  > 0">
+
+      <h6>Recently Read</h6>
+
+
+
+      <div class="box" [routerLink]="['/tabs/book/', recentData[0].id]">
+        <div class="image">
+
+          <!-- <img src="https://marloesdevries.com/wp-content/uploads/2022/05/greatescapewoodlandsnursinghome.jpg"
+            class="overflow-image"> -->
+             <img  [src]="recentData[0].subject_img">
+
+        </div>
+
+        <div class="book">
+            <h4 style="color: black">{{ recentData[0].subject_name }}</h4>
+            <ion-progress-bar color="dark" [value]="subjectProgress/100" style="width: 99%; margin-top: 1rem;"></ion-progress-bar>
+            <ion-item lines="none" slot="end">
+              <ion-label slot="end">{{ subjectProgress }}% completed</ion-label>
+            </ion-item>
+        </div>
+
+      </div>
+
+
+
+
+      <!-- <ion-card class="recently" [routerLink]="['/tabs/book', recentData[0].id]">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4" class="image-col">
+              <img src="https://marloesdevries.com/wp-content/uploads/2022/05/greatescapewoodlandsnursinghome.jpg"  class="overflow-image">
+            </ion-col>
+
+            <ion-col size="8">
+              <ion-card-content>
+                <h4 style="color: black">{{  recentData[0].subject_name }}</h4>
+                <ion-progress-bar color="dark" [value]="subjectProgress/100" style="width: 100%; margin-top: 1rem;"></ion-progress-bar>
+                <ion-item lines="none" slot="end">
+                  <ion-label slot="end">{{ subjectProgress }}% completed</ion-label>
+                </ion-item>
+              </ion-card-content>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card> -->
+
+    </div>
+
+
   </div>
+
+  </div>
+
+<div class="ion-padding" *ngIf="paid !== 'true'"  [routerLink]="['/tabs/subscription']">
+
+  <img src="../../assets/premium.png" width="100%">
+
+</div>
+
+  <div class="recent"  *ngIf="loadNext === true">
+
+    <h6>Resources</h6>
+      <ion-grid>
+        <ion-row>
+          <ion-col sizeXs="6" [routerLink]="['/tabs/shelf']">
+            <div class="test-center">
+              <span>
+                <img  src="../../assets/icon/tcenter.png">
+              </span>
+              <h5>Study Center</h5>
+              <ion-label > Get tested on the topics you have read</ion-label>
+
+            </div>
+          </ion-col>
+
+            <ion-col sizeXs="6">
+              <div class="chat2learn"  [routerLink]="['/tabs/first']">
+                <span>
+                  <img src="../../assets/icon/chat2learn.png">
+                </span>
+                <h5>Take Test</h5>
+                <ion-label>Solve dificult math questions  with AI</ion-label>
+
+              </div>
+            </ion-col>
+
+
+            <ion-col sizeXs="6">
+              <div class="mathSolver" [routerLink]="['/tabs/leader']">
+                <span>
+                  <img src="../../assets/icon/chat2learn.png">
+                </span>
+                <h5>LeaderBoard</h5>
+                <ion-label>Power Rank of SuccessBOX Students</ion-label>
+
+              </div>
+            </ion-col>
+
+            <ion-col sizeXs="6">
+              <div class="report"  [routerLink]="['/tabs/dashboard']">
+                <span>
+                  <img src="../../assets/icon/report.png">
+                </span>
+                <h5>Report & Analytics</h5>
+                <ion-label>Check out your report  from previous assessment</ion-label>
+
+              </div>
+            </ion-col>
+
+            <ion-col sizeXs="6" [routerLink]="['/tabs/chat']">
+              <div class="leader">
+                <span>
+                  <img src="../../assets/icon/chat2learn.png">
+                </span>
+                <h5>Chat2Learn</h5>
+                <ion-label>Learn any topic with me</ion-label>
+
+              </div>
+            </ion-col>
+
+
+
+
+        </ion-row>
+      </ion-grid>
+  </div>
+
+<ion-skeleton-text [animated]="true" class="ion-card" style="height: 8rem;" *ngIf="loadNext === false">
+
+  <ion-skeleton-text [animated]="true" class="ion-text-center">
+    <ion-skeleton-text [animated]="true" class="ion-card-subtitle"></ion-skeleton-text>
+
+  </ion-skeleton-text>
+
+  <ion-skeleton-text [animated]="true" style="height: 6rem; width: 90%; background: white;">
+
+
+  </ion-skeleton-text>
+
+
+</ion-skeleton-text>
+
+<div  *ngIf="loadNext === false">
+  <h6><ion-skeleton-text [animated]="true" style="width: 100px; height: 30px;"></ion-skeleton-text></h6>
+</div>
+
+<ion-skeleton-text [animated]="true" class="ion-card" style="height: 8rem;" *ngIf="loadNext === false">
+
+  <ion-skeleton-text [animated]="true" class="ion-text-center">
+    <ion-skeleton-text [animated]="true" class="ion-card-subtitle"></ion-skeleton-text>
+
+  </ion-skeleton-text>
+
+  <ion-skeleton-text [animated]="true" style="height: 6rem; width: 90%; background: white;">
+
+
+  </ion-skeleton-text>
+
+
+</ion-skeleton-text>
+
+  <div class="recent"  *ngIf="loadNext ===  false">
+
+    <h6><ion-skeleton-text [animated]="true" style="width: 100px; height: 30px;"></ion-skeleton-text></h6>
+
+
+    <ion-grid>
+      <ion-row>
+
+        <ion-col sizeXs="6" >
+          <ion-skeleton-text [animated]="true" class="shadow">
+
+              <span>
+                      <ion-skeleton-text [animated]="true" class="img"></ion-skeleton-text>
+
+
+              </span>
+                    <ion-skeleton-text [animated]="true" class="h5">
+
+                    </ion-skeleton-text>
+                     <ion-skeleton-text [animated]="true" class="ion-label">
+
+                     </ion-skeleton-text>
+
+
+
+
+
+          </ion-skeleton-text>
+
+        </ion-col>
+
+          <ion-col sizeXs="6">
+            <ion-skeleton-text [animated]="true" class="shadow">
+
+              <span>
+                <ion-skeleton-text [animated]="true" class="img"></ion-skeleton-text>
+
+
+              </span>
+              <ion-skeleton-text [animated]="true" class="h5">
+
+              </ion-skeleton-text>
+              <ion-skeleton-text [animated]="true" class="ion-label">
+
+              </ion-skeleton-text>
+
+
+
+
+
+            </ion-skeleton-text>
+
+          </ion-col>
+
+            <ion-col sizeXs="6">
+              <ion-skeleton-text [animated]="true" class="shadow">
+
+                <span>
+                  <ion-skeleton-text [animated]="true" class="img"></ion-skeleton-text>
+
+
+                </span>
+                <ion-skeleton-text [animated]="true" class="h5">
+
+                </ion-skeleton-text>
+                <ion-skeleton-text [animated]="true" class="ion-label">
+
+                </ion-skeleton-text>
+
+
+
+
+
+              </ion-skeleton-text>
+
+            </ion-col>
+
+              <ion-col sizeXs="6">
+                <ion-skeleton-text [animated]="true" class="shadow">
+
+                  <span>
+                    <ion-skeleton-text [animated]="true" class="img"></ion-skeleton-text>
+
+
+                  </span>
+                  <ion-skeleton-text [animated]="true" class="h5">
+
+                  </ion-skeleton-text>
+                  <ion-skeleton-text [animated]="true" class="ion-label">
+
+                  </ion-skeleton-text>
+
+
+
+
+
+                </ion-skeleton-text>
+
+              </ion-col>
+
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
 </ion-content>

@@ -1,0 +1,36 @@
+<!-- <ion-header mode="md">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" slot="start" size="large" [routerLink]="['/tabs/test', 3]"></ion-icon>
+
+
+
+  </ion-toolbar>
+</ion-header> -->
+
+
+<ion-content [fullscreen]="true">
+
+  <div class="body">
+    <img src="../../../assets/congrats.png">
+
+    <p>You have a score of</p>
+   <h1>{{ (scoreData.correctly_answered * 100)/scoreData.total_questions }}%</h1>
+
+  <div style="margin-top: 2rem;">
+    <a [routerLink]="['/tabs/home']">
+      <ion-icon name="home"></ion-icon>&nbsp;
+      back home
+    </a>
+
+    &nbsp;&nbsp;
+
+    <a [routerLink]="['/tabs/book', topic_id]">
+      <ion-icon name="book"></ion-icon>&nbsp;Continue Reading
+    </a>
+  </div>
+  </div>
+
+<ion-label class="sticky">
+  <ion-img src="https://chroniclesoft.com/logo.png"></ion-img>
+</ion-label>
+</ion-content>

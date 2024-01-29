@@ -1,0 +1,169 @@
+<ion-header mode="md" style="box-shadow: none;">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" slot="start"  size="large" [routerLink]="['/tabs/reader', topic_id]"></ion-icon>
+    <ion-title class="ion-text-center">
+      Knowledge Check
+        <p style="font-size: 9px;">({{ headData.topics }})</p>
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <div class="body">
+    <ion-item lines="none">
+      <ion-label slot="start">Time Left: <strong>{{ times }}</strong></ion-label>
+      <ion-label slot="end">{{ currentQuestionIndex+1 }}/{{  questionsData.length }}</ion-label>
+    </ion-item>
+
+    <!-- <div style="margin: 1px;">
+       <ion-icon   *ngFor="let i of questionsData" name="remove-sharp" style="font-size: 3rem;"
+            color="{{ checkColor(i.selected_option) }}"></ion-icon>
+
+
+
+    </div> -->
+
+    <div style="margin-left: 1px;" *ngIf="questionsData.length <= 10" class="ion-padding">
+
+      <ion-button *ngFor="let i of questionsData; let n = index" (click)="goto(n)"
+        color="{{ checkColor(i.selected_option) }}" style="  font-size: 1rem;">
+        {{ n + 1 }}
+      </ion-button>
+
+      <!-- <ion-icon *ngFor="let i of questionsData" name="remove-sharp" style="font-size: 3rem;"
+        color="{{ checkColor(i.selected_option) }}"></ion-icon> -->
+
+
+
+
+    </div>
+
+    <ion-card class="quest">
+      <ion-card-content class="ion-text-center ion-padding">
+        {{ questionsData[currentQuestionIndex]?.questionText }}
+      </ion-card-content>
+    </ion-card>
+
+
+      <div class="options">
+
+
+        <form [formGroup]="optionsForm">
+
+          <ion-list>
+
+            <ion-radio-group [allowEmptySelection]="true" value="{{questionsData[currentQuestionIndex]?.selected_option}}"
+              (ionChange)="handleChange($event, questionsData[currentQuestionIndex]?.user_study_marking_id)">
+
+              <ion-item lines="none" class="opt">
+
+                <ion-radio labelPlacement="end" justify="start" value="A" style="width: 20%;">
+
+                </ion-radio><br />
+                <p style="width: 100%;">{{ questionsData[currentQuestionIndex]?.optionA }}</p>
+
+              </ion-item>
+              <ion-item lines="none" class="opt">
+
+                <ion-radio labelPlacement="end" justify="start" value="B" style="width: 20%;">
+
+                </ion-radio><br />
+                <p style="width: 100%;">{{ questionsData[currentQuestionIndex]?.optionB
+                  }}</p>
+              </ion-item>
+              <ion-item lines="none" class="opt">
+
+                <ion-radio labelPlacement="end" justify="start" value="C" style="width: 20%;">
+
+                </ion-radio><br />
+                <p style="width: 100%;">{{ questionsData[currentQuestionIndex]?.optionC
+                  }}</p>
+              </ion-item>
+              <ion-item lines="none" class="opt">
+
+                <ion-radio labelPlacement="end" justify="start" value="D" style="width: 20%;">
+
+                </ion-radio><br />
+                <p style="width: 100%;">{{ questionsData[currentQuestionIndex]?.optionD
+                  }}</p>
+
+              </ion-item>
+
+            </ion-radio-group>
+
+
+
+          </ion-list>
+          <!-- <ion-list>
+
+
+            <ion-item lines="none"  class="opt">
+              <ion-checkbox  labelPlacement="end" justify="start" formControlName="selectedOption">
+
+                {{ questionsData[currentQuestionIndex]?.optionA }}
+              </ion-checkbox>
+            </ion-item>
+
+            <ion-item lines="none"  class="opt">
+              <ion-checkbox  labelPlacement="end" justify="start" formControlName="selectedOption">
+                {{ questionsData[currentQuestionIndex]?.optionB }}
+              </ion-checkbox>
+            </ion-item>
+
+            <ion-item lines="none"  class="opt">
+              <ion-checkbox  labelPlacement="end" justify="start" formControlName="selectedOption">
+                {{ questionsData[currentQuestionIndex]?.optionC }}
+              </ion-checkbox>
+            </ion-item>
+
+            <ion-item lines="none" class="opt">
+              <ion-checkbox labelPlacement="end" justify="start" formControlName="selectedOption">
+                {{ questionsData[currentQuestionIndex]?.optionD }}
+              </ion-checkbox>
+            </ion-item>
+          </ion-list> -->
+        </form>
+
+
+
+      </div>
+
+
+  </div>
+
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="start" >
+    <ion-fab-button class="fab"  (click)="prevQuestion()" [disabled]="currentQuestionIndex === 0">
+
+      Prev
+
+    </ion-fab-button>
+
+
+  </ion-fab>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="center">
+    <ion-fab-button class="fab2" (click)="confirmAlert()">
+      <ion-icon name="checkmark-done-outline"></ion-icon>
+      <ion-text>Submit Test</ion-text>
+    </ion-fab-button>
+  </ion-fab>
+
+
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button  class="fab1"   (click)="nextQuestion()"
+            [disabled]="currentQuestionIndex === questionsData.length - 1">
+
+    Next
+
+  </ion-fab-button>
+
+
+</ion-fab>
+
+</ion-content>

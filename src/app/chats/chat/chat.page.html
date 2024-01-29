@@ -1,0 +1,121 @@
+<ion-header >
+  <ion-toolbar class="ion-text-center">
+    <ion-icon name="chevron-back-outline" [routerLink]="['/tabs/home']" slot="start"
+      style="font-size: 2rem;"></ion-icon>
+    <ion-title>Chat2Learn</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  #contentElement>
+  <ion-toolbar class="ion-text-center">
+    <ion-icon name="menu-outline" slot="start"  class="ion-padding"></ion-icon>
+    <ion-title  class="ion-padding">
+      English Language(PRY)
+    </ion-title>
+
+  </ion-toolbar>
+
+  <div class="chatarea">
+
+    <ion-item class="question" lines="none" >
+      <ion-avatar slot="start" >
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+
+      <ion-label>Generate a random short comprehension Generate a random short comprehension passage</ion-label>
+    </ion-item>
+
+
+
+    <div  class="answer">
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img alt="Silhouette of a person's head" src="../../../assets/chat.png" />
+        </ion-avatar>
+        <ion-label>Chat2Learn</ion-label>
+      </ion-item>
+
+      <div class="layer1">
+          <p >
+            Here's a random short comprehension passage:
+
+            Samantha loved going for hikes in the woods behind her house. She enjoyed the fresh air, the sound of the leaves
+            rustling underfoot, and the feeling of being surrounded by nature. She would often bring a book with her and find a
+            cozy
+            spot to read for a while before continuing on her hike.
+            One day, while Samantha was out on a hike, she came across a small stream that she had never seen before. She
+            followed
+            the stream for a little while and discovered a beautiful waterfall. Samantha was in awe of the natural beauty around
+            her
+            and felt grateful to be able to experience it.
+            After taking in the scenery for a while, Samantha realized that she had been hiking for longer than she thought and
+            it
+            was starting to get dark. She quickly made her way back to the trail and hurried home, excited to share her new
+            discovery with her family.
+          </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="chatarea">
+
+    <ion-item class="question" lines="none">
+      <ion-avatar slot="start">
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+
+      <ion-label>Generate a random short comprehension Generate a random short comprehension passage</ion-label>
+    </ion-item>
+
+
+
+    <div class="answer">
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img alt="Silhouette of a person's head" src="../../../assets/chat.png" />
+        </ion-avatar>
+        <ion-label>Chat2Learn</ion-label>
+      </ion-item>
+
+      <div class="layer1">
+        <p>
+          Here's a random short comprehension passage:
+
+          Samantha loved going for hikes in the woods behind her house. She enjoyed the fresh air, the sound of the leaves
+          rustling underfoot, and the feeling of being surrounded by nature. She would often bring a book with her and
+          find a
+          cozy
+          spot to read for a while before continuing on her hike.
+          One day, while Samantha was out on a hike, she came across a small stream that she had never seen before. She
+          followed
+          the stream for a little while and discovered a beautiful waterfall. Samantha was in awe of the natural beauty
+          around
+          her
+          and felt grateful to be able to experience it.
+          After taking in the scenery for a while, Samantha realized that she had been hiking for longer than she thought
+          and
+          it
+          was starting to get dark. She quickly made her way back to the trail and hurried home, excited to share her new
+          discovery with her family.
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="ion-padding">
+
+<!-- your-component.page.html -->
+
+<!-- <div class="custom-chat-box">
+  <ion-input placeholder="Type a question here"  color="light" class="custom-input"></ion-input>
+  <ion-icon name="send" class="custom-send-icon" (click)="sendMessage()"></ion-icon>
+</div> -->
+
+<div class="custom-chat-box">
+  <ion-textarea placeholder="Type a message here" color="light" class="custom-input" rows="1"
+    (ionInput)="adjustTextarea($event)" [(ngModel)]="userInput"></ion-textarea>
+  <ion-icon name="send" class="custom-send-icon" (click)="sendMessage()"></ion-icon>
+</div>
+
+</ion-footer>

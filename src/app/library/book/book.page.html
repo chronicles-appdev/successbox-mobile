@@ -1,0 +1,208 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" slot="start" size="large" [routerLink]="['/tabs/shelf']"></ion-icon>
+    <ion-title class="ion-text-center">{{ subjectData.subject_name }}</ion-title>
+    <!-- <ion-icon name="chevron-back-outline" slot="start" size="large" routerLink="/tabs/shelf"></ion-icon> -->
+
+    <ion-icon name="analytics" [routerLink]="['/tabs/dashboard']" slot="end" size="large" color="primary" class="ion-padding"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+  <div class="top ion-padding">
+      <div class="box" [routerLink]="['/tabs/book', subjectData.id]">
+        <div class="image">
+          <!-- <img src="https://marloesdevries.com/wp-content/uploads/2022/05/greatescapewoodlandsnursinghome.jpg"
+            class="overflow-image" height="100%" width="100%"> -->
+              <img [src]="subjectData.subject_img">
+        </div>
+        <div class="book">
+          <h4 style="color: black">{{ subjectData.subject_name }}</h4>
+          <ion-progress-bar color="dark" [value]="subjectProgress/100"
+            style="width: 97%; margin-top: 1rem;"></ion-progress-bar>
+          <ion-item lines="none" slot="end">
+            <ion-label slot="end">{{ subjectProgress }}% completed</ion-label>
+          </ion-item>
+        </div>
+      </div>
+<!--
+  <ion-card>
+   <ion-grid>
+    <ion-row>
+      <ion-col size="4"  class="image-col">
+        <img src="https://marloesdevries.com/wp-content/uploads/2022/05/greatescapewoodlandsnursinghome.jpg">
+      </ion-col>
+
+      <ion-col size="8" [routerLink]="['/tabs/book', subjectData.id]">
+        <ion-card-content>
+          {{ subjectData.subject_name }}
+          <ion-progress-bar color="dark" [value]="subjectProgress/100" style="width: 100%; margin-top: 1rem;"></ion-progress-bar>
+          <ion-item lines="none">
+            <ion-label slot="end">{{  subjectProgress  }}% completed</ion-label>
+          </ion-item>
+
+
+
+        </ion-card-content>
+      </ion-col>
+    </ion-row>
+   </ion-grid>
+  </ion-card>
+ -->
+</div>
+<div class="ion-text-center">
+  <img src="../../assets/sbox.png" width="150px">
+</div>
+  <div class="recent">
+
+    <h6>Topics</h6>
+
+    <div class="">
+        <ion-segment [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)"  scrollable="true">
+
+          <ion-segment-button value="first">
+            <ion-label>First Term</ion-label>
+          </ion-segment-button>
+
+          <ion-segment-button value="second">
+            <ion-label>Second Term</ion-label>
+          </ion-segment-button>
+
+          <ion-segment-button value="third">
+            <ion-label>Third Term</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+
+
+        <div *ngIf="selectedSegment === 'first'">
+
+        <ion-card *ngFor="let item of topicData; let i = index" [ngClass]="{'alternate-color': i % 4 === 1   || i % 4 === 3 || i % 4 === 0 || i % 4 === 2}">
+          <ion-card-content [routerLink]="['/tabs/reader', item.id]" class="ion-card-content-container">
+
+              <ion-label slot="start" class="ion-label-left">
+                <ion-card-subtitle style="font-weight: bolder;">Week {{ item.week }}</ion-card-subtitle>
+                <ion-card-subtitle style="width: 100%;">{{ item.topics }}</ion-card-subtitle>
+              </ion-label>
+
+              <ion-label class="custom-spinner" slot="end" style="margin-top: 2rem;">
+                <ion-label class="spinner-circle1" *ngIf="item.topic_progress === null">
+                  <ion-label class="progress-label">{{ item.topic_progress * 100 }}%</ion-label>
+                </ion-label>
+
+                <ion-label class="spinner-circle" *ngIf="item.topic_progress !== null">
+                  <ion-label class="progress-label">{{ item.topic_progress * 100 }}%</ion-label>
+                </ion-label>
+              </ion-label>
+
+            </ion-card-content>
+          </ion-card>
+
+          <h3 class="ion-text-center" *ngIf="topicData.length === 0">
+            No available contents at this time
+          </h3>
+        </div>
+
+
+        <div *ngIf="selectedSegment === 'second'">
+
+
+  <ion-card *ngFor="let item of topicData1; let i = index"
+    [ngClass]="{'alternate-color': i % 4 === 1   || i % 4 === 3 || i % 4 === 0 || i % 4 === 2}">
+            <ion-card-content [routerLink]="['/tabs/reader', item.id]">
+              <h3 >Week {{ item.week }}</h3>
+              <ion-card-subtitle style="width: 80%;">{{ item.topics }}</ion-card-subtitle>
+              <ion-label class="custom-spinner">
+                <ion-label class="spinner-circle1" *ngIf="item.topic_progress === null">
+                  <ion-label class="progress-label">{{ item.topic_progress * 100 }}%</ion-label>
+                </ion-label>
+
+                <ion-label class="spinner-circle" *ngIf="item.topic_progress !== null">
+                  <ion-label class="progress-label">{{ item.topic_progress * 100 }}%</ion-label>
+                </ion-label>
+              </ion-label>
+
+
+
+
+
+
+            </ion-card-content>
+
+
+          </ion-card>
+
+          <h3 class="ion-text-center" *ngIf="topicData1.length === 0">
+            No available contents at this time
+          </h3>
+        </div>
+
+        <div *ngIf="selectedSegment === 'third'">
+
+          <!-- <ion-card *ngFor="let item of topicData2"> -->
+
+                  <ion-card *ngFor="let item of topicData2; let i = index"
+                    [ngClass]="{'alternate-color': i % 4 === 1   || i % 4 === 3 || i % 4 === 0 || i % 4 === 2}">
+            <ion-card-content [routerLink]="['/tabs/reader', item.id]">
+              <ion-card-subtitle>Week {{ item.week }}</ion-card-subtitle>
+              <ion-card-subtitle style="width: 80%;">{{ item.topics }}</ion-card-subtitle>
+              <ion-label class="custom-spinner">
+                <ion-label class="spinner-circle1" *ngIf="item.topic_progress === null">
+                  <ion-label class="progress-label">{{ item.topic_progress * 100 }}%</ion-label>
+                </ion-label>
+
+                <ion-label class="spinner-circle" *ngIf="item.topic_progress !== null">
+                  <ion-label class="progress-label">{{ item.topic_progress * 100 }}%</ion-label>
+                </ion-label>
+              </ion-label>
+
+
+
+
+
+
+            </ion-card-content>
+
+
+          </ion-card>
+          <h3 class="ion-text-center" *ngIf="topicData2.length === 0">
+            No available contents at this time
+          </h3>
+        </div>
+
+    </div>
+
+
+
+
+ <!-- <ion-item lines="none"  *ngFor="let item of topicData">
+        <ion-label slot="start">
+          <ion-card-subtitle>Week {{ item.week }}</ion-card-subtitle>
+          {{ item.topics }}
+        </ion-label>
+
+        <ion-label slot="end">
+          <div class="custom-spinner">
+            <div class="spinner-circle">
+              <div class="progress-label">100%</div>
+            </div>
+          </div>
+        </ion-label>
+      </ion-item> -->
+
+    </div>
+
+
+      <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="center">
+        <ion-fab-button [routerLink]="['/tabs/reader', 2]">
+
+          <ion-icon name="book-sharp"></ion-icon>&nbsp; Continue Reading
+
+        </ion-fab-button>
+      </ion-fab> -->
+
+</ion-content>
