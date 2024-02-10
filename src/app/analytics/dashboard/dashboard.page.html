@@ -21,13 +21,14 @@
       </ion-refresher>
     <ion-list>
       <ion-item lines="none">
-        <ion-select label="Performance Summary"  (ionChange)="selected($event)"  interface="action-sheet" placeholder="Select Filter" cancelText="Cancel Choice">
-          <ion-select-option value="1">UTME Simulator</ion-select-option>
-          <ion-select-option value="2">WAEC Test Engine</ion-select-option>
-          <ion-select-option value="3">BECE Master Prep</ion-select-option>
-          <ion-select-option value="4">Common Entrance Prep</ion-select-option>
+      <ion-select label="Performance Summary" [(ngModel)]="selectedOption" (ionChange)="selected($event)"
+        interface="action-sheet" placeholder="Select Filter" cancelText="Cancel Choice">
+        <ion-select-option value="1">UTME Simulator</ion-select-option>
+        <ion-select-option value="2">SSCE Test Engine</ion-select-option>
+        <ion-select-option value="3">BECE MasterPrep</ion-select-option>
+        <ion-select-option value="4">Common Entrance Prep</ion-select-option>
+      </ion-select>
 
-        </ion-select>
       </ion-item>
 
 
@@ -82,13 +83,14 @@
         <h6 slot="start">Biology {{ i }}</h6>
         <ion-text slot="end">{{ i+1 }}</ion-text>
       </div> -->
-    <ion-item lines="none" class="ion-text-center d-flex align-items-center justify-content-between">
-      <ion-icon name="pie-chart-outline" color="white" size="medium" slot="start"></ion-icon>
-      <div class="d-flex flex-column align-items-end">
-        <h6 class="no-wrap">{{ item.subjectname }}</h6>
-        <ion-text>{{ item.score }}%</ion-text>
-      </div>
-    </ion-item>
+  <ion-item lines="none" class="ion-text-center d-flex align-items-center justify-content-between">
+    <ion-icon name="pie-chart-outline" color="white" size="medium" slot="start" style="margin-right: 5px; margin-left: -7px;"></ion-icon>
+    <div class="d-flex flex-column align-items-end">
+      <h6 class="no-wrap">{{ item.subjectname }}</h6>
+      <ion-text>{{ item.score }}%</ion-text>
+    </div>
+  </ion-item>
+
 
 
     </swiper-slide>
@@ -218,7 +220,7 @@
     <div *ngIf="level === 2">
 
       <ion-item>
-        <h3 class="ion-padding" slot="start">SuccessBox SSCE</h3>
+        <h3 class="ion-padding" slot="start">SuccessBOX SSCE</h3>
         <a href="/tabs/break/2" style="margin-top: 1rem;" slot="end">
           view List
         </a>
@@ -247,7 +249,7 @@
 
 
           <ion-item>
-            <h3 class="ion-padding">SuccessBox UTME</h3>
+            <h3 class="ion-padding">SuccessBOX UTME</h3>
             <a href="/tabs/break/1" style="margin-top: 1rem;" slot="end">
               view List
             </a>
@@ -276,7 +278,7 @@
 
 
         <ion-item>
-          <h3 class="ion-padding">SuccessBox BECE</h3>
+          <h3 class="ion-padding">SuccessBOX BECE</h3>
           <a href="/tabs/break/3" style="margin-top: 1rem;" slot="end">
             view List
           </a>

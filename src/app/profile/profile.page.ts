@@ -21,6 +21,16 @@ export class ProfilePage implements OnInit {
   }
 
 
+  refreshPage() {
+
+    this.firstname = localStorage.getItem('firstname')
+    this.lastname = localStorage.getItem('lastname')
+  }
+  ionViewWillEnter() {
+  this.refreshPage();
+}
+
+
   logOut() {
 
     sessionStorage.clear()

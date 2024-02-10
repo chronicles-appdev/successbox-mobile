@@ -42,7 +42,7 @@
 <!-- *ngIf="questionsData[currentQuestionIndex]?.image" -->
     <!--  -->
 
-    <span *ngIf="questionsData[currentQuestionIndex]?.image !== 'None' ">
+    <span *ngIf="questionsData[currentQuestionIndex]?.image !== 'None' && questionsData[currentQuestionIndex]?.image !== 'none'">
 
       <ion-button fill="outline" (click)="openModal1(questionsData[currentQuestionIndex]?.image)" class="ion-padding" >Expand Image</ion-button>
 
@@ -142,7 +142,7 @@
 
     </div>
 
-<div style="margin-left: 1px;" *ngIf="questionsData.length > 10" class="ion-padding">
+<div style="margin-left: 1px; margin-bottom: 4rem" *ngIf="questionsData.length > 10" class="ion-padding">
 
   <ion-button *ngFor="let i of questionsData; let n = index" (click)="goto(n)"
     color="{{ checkColor(i.selected_option) }}" style="  font-size: 1rem;">

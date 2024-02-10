@@ -1,10 +1,10 @@
 ion-header {
   box-shadow: none;
-  margin: 1rem;
+
   --border: none;
 
   ion-toolbar {
-    --background: transparent;
+    --background: white;
     border: none;
 
     ion-title {
@@ -34,12 +34,10 @@ ion-content {
     width: 12rem;
     height: 1rem;
     margin-top: 5rem;
-
+    text-align: center;
     --background: #383B4C;
     position: absolute;
-    bottom: 10%;
-    left: 30%;
-    right: 40%;
+
 
   }
 }

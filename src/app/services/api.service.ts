@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 export class ApiServiceService {
   //private apiUrl = 'https://sboxv2.ulearnlms.net/public/api/payment-status'; // Replace with your backend API URL
 //api/auth/register
-private apiUrl = 'https://sboxv2.ulearnlms.net/public';
+//private apiUrl = 'https://sboxv2.ulearnlms.net/public';
+private apiUrl = 'https://185-167-96-73.cloud-xip.com';
 private synthesis: SpeechSynthesis = window.speechSynthesis;
   constructor(private http: HttpClient) { }
 
@@ -34,8 +35,8 @@ private synthesis: SpeechSynthesis = window.speechSynthesis;
   }
 
   // POST request with optional headers
-  public post(endpoint: string, data: any, headers?: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/${endpoint}`, data,  headers );
+  public post(endpoint: string, data: any, headers?: HttpHeaders): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${endpoint}`, data,  { headers } );
   }
 
 

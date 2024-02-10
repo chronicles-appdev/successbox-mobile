@@ -5,6 +5,7 @@ import { ApiServiceService } from '../services/api.service';
 import { register } from 'swiper/element/bundle';
 import { ProcessService } from '../services/process.service';
 import { Location } from '@angular/common';
+import { NavController } from '@ionic/angular';
 
 register();
 
@@ -54,43 +55,60 @@ paid: string | null ='false'
     this.isActionSheetOpen = isOpen;
   }
 
-  constructor(private location: Location, private router: Router, private apiService: ApiServiceService, private processService: ProcessService) {
-    //  setInterval(() => {
-    //    this.recentSubjects()
-    //        this.quotesForToday()
-    // }, 5000);
+  constructor(private navCtrl: NavController,private location: Location, private router: Router, private apiService: ApiServiceService, private processService: ProcessService) {
+
   }
 
-  reloadPage() {
-  this.location.replaceState(this.location.path()); // Reload the current route
-  window.location.reload(); // Reload the page
-}
+
   ngOnInit() {
- this.authToken = localStorage.getItem('token')
-    this.class_id = localStorage.getItem('class_id')
-    this.firstname = localStorage.getItem('firstname')
-    this.lastname = localStorage.getItem('lastname')
-   // this.class_id = localStorage.getItem('classid')
 
-      this.processService.home$.subscribe((data) => {
 
-        console.log('This is updated Home table', data)
-           this.recentSubjects()
-           this.quotesForToday()
-      });
+  //  this.class_id = localStorage.getItem('classid')
+     this.refreshPage();
+    //   this.processService.home$.subscribe((data) => {
+
+    //     console.log('This is updated Home table', data)
+
+    //   });
 
      setTimeout(() => {
        this.loadNext = true
 
     }, 1000);
 
-    this.fetchStatus()
-    this.paid = localStorage.getItem('payStatus')
-    console.log('classid',this.class_id)
+
+    // this.paid = localStorage.getItem('payStatus')
+
   }
 
+  ionViewWillEnter() {
+    this.refreshPage();
+       this.navCtrl.navigateForward('/tabs/home');
+
+  }
+  refreshPage() {
+
+
+     this.authToken = localStorage.getItem('token')
+    this.class_id = localStorage.getItem('class_id')
+    this.firstname = localStorage.getItem('firstname')
+    this.lastname = localStorage.getItem('lastname')
+    this.paid = localStorage.getItem('payStatus')
+
+    this.recentSubjects()
+    this.quotesForToday()
+      this.fetchStatus()
+  }
+
+   reloadPage() {
+  this.location.replaceState(this.location.path()); // Reload the current route
+  window.location.reload(); // Reload the page
+   }
 
   handleRefresh(event: any) {
+    this.navCtrl.pop().then(() => {
+    this.navCtrl.navigateForward('/tabs/home');
+  });
      setTimeout(() => {
         this.recentSubjects()
            this.quotesForToday()

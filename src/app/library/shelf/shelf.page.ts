@@ -44,6 +44,19 @@ paid: string | null ='false'
   }
 
 
+
+  refreshPage() {
+     this.authToken = localStorage.getItem('token')
+    this.class_id = localStorage.getItem('class_id')
+
+     this.paid = localStorage.getItem('payStatus')
+  }
+  ionViewWillEnter() {
+  this.refreshPage();
+}
+
+
+
   handleRefresh(event: any) {
      setTimeout(() => {
           this.getSubjects(this.class_id)

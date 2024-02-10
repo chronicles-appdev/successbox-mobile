@@ -16,7 +16,7 @@ export class DashboardPage implements OnInit {
     public pieChartDatasets = [ {
     data: [ 0, 0]
     }];
-
+  selectedOption = '1';
   topSubject: any[] = []
   level = 0
   iconRolled: boolean = false
@@ -50,14 +50,17 @@ reportsData3: any[] = [];
      });
     // this.getCategories()
 
-
+      this.level = 2
+       this.getreport(2)
+      this.getSSCE(2)
+       this.getTopSubj()
 
   }
 
 
   handleRefresh(event: any) {
      setTimeout(() => {
-       
+
           event.target.complete();
     }, 2000);
   }

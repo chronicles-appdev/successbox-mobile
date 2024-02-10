@@ -102,7 +102,11 @@ const routes: Routes = [
        {
           path: 'profile-edit',
           loadChildren: () => import('../profile-edit/profile-edit.module').then( m => m.ProfileEditPageModule)
-        },
+      },
+         {
+        path: 'feedback',
+        loadChildren: () => import('../feedback/feedback.module').then( m => m.FeedbackPageModule)
+      },
 
       {
         path: '',

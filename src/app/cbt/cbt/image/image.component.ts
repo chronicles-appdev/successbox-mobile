@@ -10,7 +10,8 @@ export class ImageComponent  implements OnInit {
 
 
  @Input() message: any;
-url: string = 'https://ulearnlms.net/successboxV2/images/'
+  //url: string = 'https://ulearnlms.net/successboxV2/images/'
+  url: string = 'https://185-167-96-73.cloud-xip.com/images_1/'
   ngOnInit() {}
 
    name!: string;

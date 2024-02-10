@@ -5,6 +5,7 @@
 <ion-content class="ion-padding">
     <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
       <ion-refresher-content></ion-refresher-content>
+
     </ion-refresher>
 
    <div class="ion-text-center">
@@ -110,7 +111,9 @@
 </div>
 
   <div class="recent"  *ngIf="loadNext === true">
-
+  <!-- <div class="ion-text-center">
+    <img src="../../assets/sbox.png" style="padding-top: 2rem;" width="150px">
+  </div> -->
     <h6>Resources</h6>
       <ion-grid>
         <ion-row>

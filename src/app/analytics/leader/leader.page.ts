@@ -12,21 +12,30 @@ import { ApiServiceService } from 'src/app/services/api.service';
 export class LeaderPage implements OnInit {
   iconRolled: boolean = false
   show: boolean = false
-  showCat: boolean = false
-  showSubEx: boolean = false
+  showCat: boolean = true
+  showSubEx: boolean = true
   showAss: boolean = false
    showSub: boolean = false
   userId: string | null = ''
   classId: string | null = ''
   leaderData: any[] = []
   authToken: any
-  cat: string = ''
+  examMode: boolean = false
+  examMode1: boolean = false
+  examMode2: boolean = false
+  examMode3: boolean = false
+  cat: string = '2'
   topSubject: any[] = []
   topSubject1: any[] = []
   topSubject2: any[] = []
   topSubject3: any[] = []
   subjectData: any[] = []
   subjectDataEx: any[] = []
+
+  math: any = '3'
+  mode: any = 'assessment'
+  exam: any = '2'
+
   constructor(private apiService: ApiServiceService) { }
 
   handleChange(e: any) {
@@ -65,10 +74,17 @@ export class LeaderPage implements OnInit {
   handleChangeSubjEx(e: any) {
      const data = e.detail.value
     console.log('ionChange fired with subject ID: ' + data);
-
-      this.getPractRanking(this.cat, data)
-    this.showSubEx = true
+    if (this.cat === '') {
+      this.getPractRanking(2, data)
+        this.showSubEx = true
       this.showSub = false
+    } else {
+      this.getPractRanking(this.cat, data)
+        this.showSubEx = true
+      this.showSub = false
+    }
+
+
 
 
   }
@@ -82,6 +98,34 @@ export class LeaderPage implements OnInit {
    //  this.showCat = false
       this.showSub = false
 
+    if (data == 1) {
+      this.getPractice1(1)
+      this.examMode = false
+      this.examMode1 = true
+      this.examMode2 = false
+      this.examMode3= false
+    } else  if (data == 2){
+      this.getPractice(2)
+        this.examMode = true
+      this.examMode1 = false
+      this.examMode2 = false
+      this.examMode3= false
+    } else  if (data == 3){
+      this.getPractice2(3)
+        this.examMode = false
+      this.examMode1 = false
+      this.examMode2 = true
+      this.examMode3= false
+    } else  if (data == 4){
+      this.getPractice3(4)
+        this.examMode = false
+      this.examMode1 = false
+      this.examMode2 = false
+      this.examMode3= true
+    }
+
+
+
 
    }
 
@@ -91,10 +135,15 @@ export class LeaderPage implements OnInit {
     this.userId = localStorage.getItem('userId')
     this.classId = localStorage.getItem('class_id')
   //  this.generateItems();
-    this.getPractice(2)
-       this.getPractice1(1)
-       this.getPractice2(3)
-       this.getPractice3(4)
+      this.getPractice(2)
+
+
+    this.getPractRanking(2, 3)
+    this.getSubjectsExam(2)
+      this.examMode = true
+      this.examMode1 = false
+      this.examMode2 = false
+      this.examMode3= false
   }
 
 
@@ -126,12 +175,12 @@ export class LeaderPage implements OnInit {
     }
     }
 
-    onIonInfinite(ev: any) {
-    this.generateItems();
-    setTimeout(() => {
-      (ev as InfiniteScrollCustomEvent).target.complete();
-    }, 500);
-    }
+    // onIonInfinite(ev: any) {
+    // this.generateItems();
+    // setTimeout(() => {
+    //   (ev as InfiniteScrollCustomEvent).target.complete();
+    // }, 500);
+    // }
 
 
 
@@ -273,7 +322,7 @@ export class LeaderPage implements OnInit {
             // Do something with the response data here
           if (data.status == 'success') {
             this.topSubject = data.data
-            console.log('Leader Data successfully Fetched:', this.topSubject);
+            console.log('Leader Data successfully Fetched ssce:', this.topSubject);
 
 
           } else {
@@ -305,7 +354,7 @@ export class LeaderPage implements OnInit {
             // Do something with the response data here
           if (data.status == 'success') {
             this.topSubject1 = data.data
-            console.log('Leader Data successfully Fetched:', this.topSubject);
+           // console.log('Leader Data successfully Fetched:', this.topSubject);
 
 
           } else {
@@ -338,7 +387,7 @@ export class LeaderPage implements OnInit {
             // Do something with the response data here
           if (data.status == 'success') {
             this.topSubject2 = data.data
-            console.log('Leader Data successfully Fetched:', this.topSubject);
+          //  console.log('Leader Data successfully Fetched:', this.topSubject);
 
 
           } else {
@@ -372,7 +421,7 @@ export class LeaderPage implements OnInit {
             // Do something with the response data here
           if (data.status == 'success') {
             this.topSubject3 = data.data
-            console.log('Leader Data successfully Fetched:', this.topSubject);
+            //console.log('Leader Data successfully Fetched:', this.topSubject);
 
 
           } else {

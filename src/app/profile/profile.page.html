@@ -1,8 +1,10 @@
-<ion-header>
+<ion-header mode="ios">
   <ion-toolbar class="ion-text-center">
     <ion-icon name="chevron-back-outline" [routerLink]="['/tabs/home']" slot="start"
       style="font-size: 2rem;"></ion-icon>
     <ion-title>Profile</ion-title>
+
+      <ion-icon name="log-out-outline"   style="font-size: 2rem; color: red;" slot="end" (click)="presentAlert()"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -20,15 +22,18 @@
     </div>
 
 <div class="item">
-  <!-- <ion-item button detail="true" lines="none"  [routerLink]="['/tabs/profile-edit']">
-    <ion-label>
-      <h3>
-        <ion-icon name="create-outline"></ion-icon>
-       Edit profile information
-      </h3>
+ 
 
-    </ion-label>
-  </ion-item> -->
+
+    <ion-item button detail="true" lines="none" [routerLink]="['/tabs/feedback']">
+      <ion-label>
+        <h3>
+          <ion-icon name="create-outline"></ion-icon>
+          Submit Feedback
+        </h3>
+
+      </ion-label>
+    </ion-item>
 
 
     <ion-item button detail="true" lines="none" [routerLink]="['/tabs/subscription']">
@@ -40,6 +45,7 @@
 
       </ion-label>
     </ion-item>
+
 
   <ion-item button lines="none">
     <ion-label slot="start">
@@ -68,6 +74,6 @@
 
 <div>
 
-<ion-button (click)="presentAlert()">Log Out</ion-button>
 </div>
+
 </ion-content>

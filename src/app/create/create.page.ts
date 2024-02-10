@@ -235,11 +235,11 @@ export class CreatePage implements OnInit {
       message: message,
       buttons: [
         {
-          text: 'Go to Dashboard',
+          text: 'Go to Login',
           cssClass: 'custom-alert-button',
           handler: () => {
                 // this.router.navigate(['.'],  '/tabs/home' );
-           this.router.navigateByUrl('/tabs/home');
+           this.router.navigateByUrl('/login');
           }
         }
       ]

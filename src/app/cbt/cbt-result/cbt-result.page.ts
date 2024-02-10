@@ -14,7 +14,7 @@ export class CbtResultPage implements OnInit {
   authToken!: any;
   scoreData: any=[];
   tt_id!: any
-  total: any
+  total: any = 1
   constructor(private processService: ProcessService, private route: Router, private routeAct: ActivatedRoute, private apiService: ApiServiceService) {}
 
   ngOnInit() {

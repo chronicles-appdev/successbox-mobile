@@ -124,6 +124,10 @@ const routes: Routes = [
     path: 'leader',
     loadChildren: () => import('./analytics/leader/leader.module').then( m => m.LeaderPageModule)
   },
+  {
+    path: 'feedback',
+    loadChildren: () => import('./feedback/feedback.module').then( m => m.FeedbackPageModule)
+  },
 ];
 
 @NgModule({

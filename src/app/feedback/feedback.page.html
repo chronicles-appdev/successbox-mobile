@@ -1,0 +1,56 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Feedback Center</ion-title>
+
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+
+
+
+
+<ion-content [fullscreen]="true">
+
+
+
+<div class="signup ion-text-center">
+    <!-- <img src="../../assets/sbox.png"> -->
+        <img src="https://cdn0.iconfinder.com/data/icons/email-3-1/32/Contact_Us-Email-Feedback-Message-Comment-512.png" width="200px">
+  <h5 style="margin: 2rem;">Send us a Feedback bellow</h5>
+  <!-- <p>Create an account with us today!</p> -->
+</div>
+
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="feedBackCreate()">
+
+          <ion-list class="ion-padding">
+
+            <ion-input label="Write Title here" label-placement="floating" fill="outline" placeholder="Enter Title"  formControlName="title" ngModel title></ion-input>
+            <br>
+              <ion-textarea label="Your Message here" labelPlacement="floating" fill="outline" placeholder="Enter Message"  formControlName="message" ngModel message></ion-textarea>
+
+                <br>
+            <ion-button type="submit" expand="block">Submit Feedback</ion-button>
+
+
+
+          </ion-list>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>
+
+</ion-content>

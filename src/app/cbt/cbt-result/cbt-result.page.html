@@ -16,34 +16,75 @@
 <ion-content [fullscreen]="true">
 
   <div class="body">
-    <img *ngIf="total <= 50" src="../../../assets/result1.png" height="120px" width="120px">
-  <img  *ngIf="total > 50" src="../../../assets/result.png"  height="120px" width="120px">
-    <p style="margin-top: 1rem; margin-bottom: 2rem" >Your percentage score is: </p>
-    <!-- <h1 *ngIf="total <= 50" style="color: red;">{{ total | number:'1.2-2' }}%</h1>
+        <div *ngIf="total <= 30">
 
-    <h1  *ngIf="total > 50"  style="color: green;">{{ total | number:'1.2-2' }}%</h1> -->
 
-      <div style="margin-bottom: 4rem;">
-          <ion-label *ngIf="total <= 50" class="ion-text-center custom-spinner">
 
-            <ion-label class="spinner-circle1" *ngIf="total !== null">
-              <ion-label class="progress-label1">{{ total }}%</ion-label>
+            <img  src="../../../assets/result1.png" height="120px" width="120px">
+            <p style="margin-top: 1rem;">Your score is: </p>
+            <h1  style="color: red; font-size: 34px;">{{ total | number:'1.0-2' }}%</h1>
+
+            <div class="ion-text-center" style="margin-bottom: 4rem; width: 80%; ">
+              <ion-label class="ion-text-center custom-spinner">
+                <ion-progress-bar [value]="total/100" color="danger"></ion-progress-bar>
+
+              </ion-label>
+
+            </div>
+        </div>
+
+
+        <div *ngIf="total < 50 && total > 30">
+
+          <img  src="../../../assets/result.png" height="120px" width="120px">
+
+
+          <p style="margin-top: 1rem;">Your score is: </p>
+          <h1 style="color: goldenrod; font-size: 34px;">{{ total | number:'1.0-2' }}%</h1>
+
+          <div class="ion-text-center" style="margin-bottom: 4rem; width: 80%; ">
+            <ion-label class="ion-text-center custom-spinner">
+              <ion-progress-bar [value]="total/100" color="warning"></ion-progress-bar>
+
             </ion-label>
-          </ion-label>
 
-          <ion-label *ngIf="total > 50" class="ion-text-center custom-spinner">
+          </div>
+        </div>
 
-            <ion-label class="spinner-circle" *ngIf="total !== null">
-              <ion-label class="progress-label">{{ total }}%</ion-label>
+              <div *ngIf="total >= 50">
+
+                <img src="../../../assets/congrats.png">
+
+
+                <p style="margin-top: 1rem;">Your score is: </p>
+                <h1 style="color: green; font-size: 34px;">{{ total | number:'1.0-2' }}%</h1>
+
+                <div class="ion-text-center" style="margin-bottom: 4rem; width: 80%; ">
+                  <ion-label class="ion-text-center custom-spinner">
+                    <ion-progress-bar [value]="total/100" color="success"></ion-progress-bar>
+
+                  </ion-label>
+
+                </div>
+              </div>
+
+
+
+
+
+          <!-- <img *ngIf="total <= 50" src="../../../assets/result1.png" height="120px" width="120px">
+            <p style="margin-top: 1rem;">Your score is: </p>
+            <h1 *ngIf="total > 50" style="color: red;">{{ total | number:'1.0-2' }}%</h1>
+
+      <div class="ion-text-center" style="margin-bottom: 4rem; width: 80%; ">
+            <ion-label *ngIf="total > 50" class="ion-text-center custom-spinner">
+              <ion-progress-bar [value]="total/100" color="danger"></ion-progress-bar>
+
             </ion-label>
-          </ion-label>
 
-      </div>
+         </div> -->
 
         <div style="margin-top: 5px; margin-bottom: 10px;">
-            <!-- <p class="margin-top: 5rem;" *ngIf="total > 50">Hurray!!!, Keep it up</p> -->
-            <!-- <p *ngIf="total <= 50">you can do better try again!! </p> -->
-
 
 
             <ion-label style="color: green; margin-top: 1rem">
@@ -54,9 +95,12 @@
             <ion-label style="color: red">
 
               <ion-icon name="close-circle-outline"></ion-icon> No.of wrongly answered: <span>{{
-                scoreData.total_questions - scoreData.correctly_answered }}</span></ion-label>
+              scoreData.total_questions - scoreData.correctly_answered }}</span></ion-label>
             <br>
             <h5 style="">Total Questions: <span>{{ scoreData.total_questions }}</span></h5>
+
+
+
 
         </div>
 

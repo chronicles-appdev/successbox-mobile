@@ -13,16 +13,17 @@ export class HomeGuard implements CanActivate {
 
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      const token = localStorage.getItem('token')
 
-
-      if (localStorage.getItem('token')) {
+      if (token !== null) {
 
 
 
            return true
 
-      }else{
-       this.router.navigate(['/login']);
+      } else {
+      //  return false
+      this.router.navigate(['/login']);
       }
 
   return false

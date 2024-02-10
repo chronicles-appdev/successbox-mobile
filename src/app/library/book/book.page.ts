@@ -37,7 +37,9 @@ export class BookPage implements OnInit {
          this.processService.updateShelf();
 
             console.log('This is updated Books', data)
-                this.getTopics(this.subject_id)
+          this.getTopics(this.subject_id)
+          this.getTopics1(this.subject_id)
+             this.getTopics2(this.subject_id)
                 this.getSubjectD(this.subject_id)
                 this.getSubjectProgress(this.subject_id)
       });

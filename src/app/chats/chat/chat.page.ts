@@ -3,12 +3,8 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonContent } from '@ionic/angular';
 import { ChatService } from 'src/app/services/chat.service';
-import OpenAI from 'openai';
 
 
-const openai = new OpenAI({
-  apiKey: "", // This is the default and can be omitted
-});
 
 
 @Component({
@@ -28,9 +24,10 @@ chatCompletion: any
     if (!this.userInput.trim()) {
       return;
     }
-     console.log(this.userInput)
-     this.resData = this.openaiService.getDataFromOpenAPI(this.userInput);
-      console.log(this.resData)
+
+    this.chat(this.userInput)
+    //  this.resData = this.openaiService.main(this.userInput);
+    //   console.log(this.resData)
 
   }
 
@@ -44,18 +41,8 @@ chatCompletion: any
   ngOnInit() {
     this.scrollToBottom();
 
-    this.main()
-     console.log(this.chatCompletion)
   }
 
-
-    async  main() {
-      const chatCompletion = await openai.chat.completions.create({
-        messages: [{ role: 'user', content: 'Say this is a test' }],
-        model: 'gpt-3.5-turbo',
-      });
-
-    }
 
 
 
@@ -63,5 +50,24 @@ chatCompletion: any
     // Adjust the number of rows dynamically based on the input content
     const textarea = event.target;
     textarea.rows = textarea.value.split('\n').length;
+   }
+
+  chat(message: any) {
+
+
+      this.openaiService.askOpenai(message).subscribe({
+        next: (data) => {
+
+
+             console.log(data);
+
+        },
+        error: (error) => {
+           // console.log('Hi 3')
+          console.error('Error Fetching Chat:', error);
+        }
+      });
+
+
   }
 }

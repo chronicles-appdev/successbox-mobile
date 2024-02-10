@@ -60,6 +60,10 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+  ngOnDestroy(): void {
+    this.loadingCtrl.dismiss
+
+  }
  async loginUser() {
 
 
@@ -118,6 +122,9 @@ export class LoginPage implements OnInit {
       });
 
 
+    } else {
+           loading.dismiss();
+        this.presentFailedAlert('Failed Alert', 'Invalid login details')
     }
 
 

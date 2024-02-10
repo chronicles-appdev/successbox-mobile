@@ -298,22 +298,26 @@ export class CbtPage implements OnInit {
 
    saveOption(option: any, markingid: any) {
 
-      const headersPost:any = {
-      headers: {
+      const headers = new HttpHeaders ({
+            'Content-Type': 'application/json',
+           'Accept': 'application/json',
+           'Authorization': `Bearer ${this.authToken}`
+      });
 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-           Authorization: `Bearer ${this.authToken}`
-      }
-    };
+
+    //   const headersPost:any = {
+    //   headers: {
+
+    //       'Content-Type': 'application/json',
+    //       'Accept': 'application/json',
+    //        Authorization: `Bearer ${this.authToken}`
+    //   }
+    // };
       const postData : any = {
-
         "selected_option": option
-
-
       };
 
-      this.apiService.post('api/user/assessment-update-selection/'+markingid, postData, headersPost).subscribe({
+      this.apiService.post('api/user/assessment-update-selection/'+markingid, postData, headers).subscribe({
         next: (data) => {
 
             if(data.status == 'success'){
