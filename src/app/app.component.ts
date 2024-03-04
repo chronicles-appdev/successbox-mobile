@@ -1,6 +1,8 @@
 import { Component, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
+import { Platform } from '@ionic/angular';
+import { FcmService } from './services/fcm.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +10,14 @@ import { App, URLOpenListenerEvent } from '@capacitor/app';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
- 	constructor(private router: Router, private zone: NgZone) {
-		this.initializeApp();
+ 	constructor(private router: Router, private zone: NgZone, private platform: Platform, private fcm: FcmService) {
+      this.initializeApp();
+
+      this.platform.ready().then(() => {
+        this.fcm.initPush();
+      }).catch(e => {
+        console.log(e);
+      })
 	}
 
   initializeApp() {
@@ -27,5 +35,7 @@ export class AppComponent {
 				}
 			});
 		});
-	}
+  }
+
+
 }

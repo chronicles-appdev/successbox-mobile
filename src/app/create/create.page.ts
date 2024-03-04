@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiServiceService } from '../services/api.service';
 //import { HttpClientModule } from '@angular/common/http';
 import { from } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { ViewChild } from '@angular/core';
 @Component({
@@ -81,11 +81,12 @@ export class CreatePage implements OnInit {
   responseData: any;
   postData: any;
   putData: any;
+  referral!: string | null;
   authToken: string = 'YOUR_AUTH_TOKEN'; // Replace with your authentication token
 
  // constructor(private apiService: ApiService) { }
 
-  constructor(private apiService: ApiServiceService, private formBuilder: FormBuilder, private http: HttpClient, private alertController: AlertController, private router: Router,
+  constructor(private routeAct: ActivatedRoute,private apiService: ApiServiceService, private formBuilder: FormBuilder, private http: HttpClient, private alertController: AlertController, private router: Router,
     private loadingCtrl: LoadingController) {
 
     this.registrationForm = this.formBuilder.group({
@@ -93,6 +94,7 @@ export class CreatePage implements OnInit {
       lastname: ['', Validators.required],
       classid: ['', Validators.required],
       levelid: ['', Validators.required],
+       refferal: [this.referral, Validators.required],
           state: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
@@ -107,6 +109,10 @@ export class CreatePage implements OnInit {
 
   ngOnInit() {
     // this.getClasses('primary')
+     if(this.routeAct){
+
+        this.referral = this.routeAct.snapshot.paramMap.get('id')
+      }
   }
 
   async registerUser() {

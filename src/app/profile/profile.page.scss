@@ -1,3 +1,18 @@
+ion-popover {
+  --background: transparent;
+  --box-shadow: 0 ;
+  --color: white;
+  --width: 300px;
+}
+
+ion-popover ion-content {
+  --background: transparent;
+}
+
+ion-popover::part(backdrop) {
+  background-color: transparent;
+}
+
 ion-header {
   box-shadow: none;
 
@@ -38,6 +53,38 @@ ion-content {
     --background: #383B4C;
     position: absolute;
 
+
+  }
+
+
+
+  .analytics {
+    .ion-item {
+        color: white;
+        --ion-background-color: transparent;
+
+        color: white;
+          background-color: var(--ion-color-success);
+          border-radius: 3px;
+          padding-top: 0.1px;
+          width: 10rem;
+          height: 5rem;
+          margin: 0 5px;
+      }
+
+
+             .ion-item1 {
+               color: white;
+               --ion-background-color: transparent;
+
+               color: white;
+               background-color: var(--ion-color-primary);
+               border-radius: 3px;
+               padding-top: 0.1px;
+               width: 10rem;
+               height: 5rem;
+               margin: 0 5px;
+             }
 
   }
 }

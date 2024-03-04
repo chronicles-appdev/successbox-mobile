@@ -1648,6 +1648,15 @@
         "hash": "sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA=="
       }
     },
+    "npm:@capacitor/clipboard": {
+      "type": "npm",
+      "name": "npm:@capacitor/clipboard",
+      "data": {
+        "version": "5.0.7",
+        "packageName": "@capacitor/clipboard",
+        "hash": "sha512-N9JJruFB1mKNmA/+HPXyhcSugvEmYYfM4BibYB8lPqGc9QUY8WirU1+/5Keo8+lKJ6Sv9FVyHr2Sf8XFpwK7Tw=="
+      }
+    },
     "npm:@capacitor/core": {
       "type": "npm",
       "name": "npm:@capacitor/core",
@@ -1673,6 +1682,24 @@
         "version": "5.0.6",
         "packageName": "@capacitor/keyboard",
         "hash": "sha512-9GewAa/y2Hwkdw/Be8MTdiAjrFZ7TPDKpR44M0Y/0QMnK+mBbgzcoZ/UkuumWv6e2F1IAI+VY5eYVQHDeZcRoA=="
+      }
+    },
+    "npm:@capacitor/preferences": {
+      "type": "npm",
+      "name": "npm:@capacitor/preferences",
+      "data": {
+        "version": "5.0.7",
+        "packageName": "@capacitor/preferences",
+        "hash": "sha512-JvfGP1m8nITWEFdBpKR9HXNeBjLKwO0q1pry7Z5lYrYmCrbyRBLWzaGZGll8py4KmGWL3F5+PZvhrpT4gPoeAQ=="
+      }
+    },
+    "npm:@capacitor/push-notifications": {
+      "type": "npm",
+      "name": "npm:@capacitor/push-notifications",
+      "data": {
+        "version": "5.1.1",
+        "packageName": "@capacitor/push-notifications",
+        "hash": "sha512-lPtjlMG/PXKZEQjFFI3uqDqC8XaVjOosStvMZMVgxHgn2U45J3QRznUdVR0d6XqLmHnilxLs8ZNislkie0QfPA=="
       }
     },
     "npm:@capacitor/status-bar": {
@@ -14167,6 +14194,13 @@
         "type": "static"
       }
     ],
+    "npm:@capacitor/clipboard": [
+      {
+        "source": "npm:@capacitor/clipboard",
+        "target": "npm:@capacitor/core",
+        "type": "static"
+      }
+    ],
     "npm:@capacitor/core": [
       {
         "source": "npm:@capacitor/core",
@@ -14184,6 +14218,20 @@
     "npm:@capacitor/keyboard": [
       {
         "source": "npm:@capacitor/keyboard",
+        "target": "npm:@capacitor/core",
+        "type": "static"
+      }
+    ],
+    "npm:@capacitor/preferences": [
+      {
+        "source": "npm:@capacitor/preferences",
+        "target": "npm:@capacitor/core",
+        "type": "static"
+      }
+    ],
+    "npm:@capacitor/push-notifications": [
+      {
+        "source": "npm:@capacitor/push-notifications",
         "target": "npm:@capacitor/core",
         "type": "static"
       }

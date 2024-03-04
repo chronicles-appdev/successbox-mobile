@@ -33,6 +33,10 @@ const routes: Routes = [
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
   },
   {
+    path: 'create/:id',
+    loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },

@@ -6,7 +6,6 @@ import { register } from 'swiper/element/bundle';
 import { ProcessService } from '../services/process.service';
 import { Location } from '@angular/common';
 import { NavController } from '@ionic/angular';
-
 register();
 
 @Component({
@@ -61,23 +60,12 @@ paid: string | null ='false'
 
 
   ngOnInit() {
-
-
-  //  this.class_id = localStorage.getItem('classid')
      this.refreshPage();
-    //   this.processService.home$.subscribe((data) => {
-
-    //     console.log('This is updated Home table', data)
-
-    //   });
 
      setTimeout(() => {
        this.loadNext = true
 
     }, 1000);
-
-
-    // this.paid = localStorage.getItem('payStatus')
 
   }
 

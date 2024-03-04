@@ -201,7 +201,6 @@ paid: string | null = ''
         }
       });
 
-
   }
 
   getSubjects(cat_id: any) {
