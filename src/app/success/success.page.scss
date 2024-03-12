@@ -1,0 +1,19 @@
+.card {
+  border: 1px solid rgb(226, 225, 225);
+  border-radius: 1rem;
+  margin: 1rem;
+}
+ion-popover {
+  --background: transparent;
+  --box-shadow: 0;
+  --color: white;
+  --width: 300px;
+}
+
+ion-popover ion-content {
+  --background: transparent;
+}
+
+ion-popover::part(backdrop) {
+  background-color: transparent;
+}

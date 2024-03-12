@@ -21,6 +21,7 @@
     "@capacitor/preferences": "^5.0.7",
     "@capacitor/push-notifications": "^5.1.1",
     "@capacitor/status-bar": "5.0.6",
+    "@google-cloud/aiplatform": "^3.14.0",
     "@ionic/angular": "^7.0.0",
     "chart.js": "^3.6.0",
     "flutterwave-angular-v3": "^1.2.1",

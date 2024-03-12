@@ -140,11 +140,12 @@ export class CreatePage implements OnInit {
         "firstname": this.registrationForm.value.firstname,
          "lastname": this.registrationForm.value.lastname,
         "email": this.registrationForm.value.email,
-         "state": this.registrationForm.value.state,
-         "admin_class_id":this.registrationForm.value.classid,
+        "state": this.registrationForm.value.state,
+        "admin_class_id":this.registrationForm.value.classid,
         "password": this.registrationForm.value.password,
-         "password_confirmation": this.registrationForm.value.cpassword,
-          "phone_number": this.registrationForm.value.phone
+        "password_confirmation": this.registrationForm.value.cpassword,
+        "phone_number": this.registrationForm.value.phone,
+        "referal_code": this.registrationForm.value.refferal
 
       };
       console.log(postData)

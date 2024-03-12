@@ -22,9 +22,11 @@ export class HomePage {
   recentData: any[] = []
   quoteData: any[] = []
   authToken!: any
-paid: string | null ='false'
+  userId!: string | null
+  paid: string | null ='false'
    subjectProgress: any = 0
   subjectData: any = [];
+  successPoint = 0
 
 
   public actionSheetButtons = [
@@ -77,7 +79,8 @@ paid: string | null ='false'
   refreshPage() {
 
 
-     this.authToken = localStorage.getItem('token')
+    this.authToken = localStorage.getItem('token')
+     this.userId = localStorage.getItem('userId')
     this.class_id = localStorage.getItem('class_id')
     this.firstname = localStorage.getItem('firstname')
     this.lastname = localStorage.getItem('lastname')
@@ -85,7 +88,8 @@ paid: string | null ='false'
 
     this.recentSubjects()
     this.quotesForToday()
-      this.fetchStatus()
+    this.fetchStatus()
+    this.fetchPoint()
   }
 
    reloadPage() {
@@ -117,21 +121,47 @@ paid: string | null ='false'
       });
         this.apiService.get('api/payment-status', headers).subscribe({
           next: (data) => {
-            console.log(data)
+
               // Do something with the response data here
             if (data.status == 'success') {
               this.paid = 'true'
               localStorage.setItem('payStatus', 'true')
                 // this.route.navigateByUrl('/tabs/home')
-              console.log(data)
-            console.log('status successfully Fetched:', data);
+
+
             } else {
                 localStorage.setItem('payStatus', 'false')
-                console.log(data.message);
+
               }
           },
           error: (error) => {
               localStorage.setItem('payStatus', 'false')
+            console.error('Error Fetching:', error);
+
+          }
+        });
+
+
+  }
+
+
+  fetchPoint(){
+
+      const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+              Authorization: `Bearer ${this.authToken}`
+      });
+        this.apiService.get('api/user/fetch-success-points/'+this.userId, headers).subscribe({
+          next: (data) => {
+
+            if (data.status == 'success') {
+                console.log('success points', data)
+                this.successPoint = data.data
+
+            }
+          },
+          error: (error) => {
+
             console.error('Error Fetching:', error);
 
           }
@@ -165,7 +195,7 @@ paid: string | null ='false'
             this.getSubjectProgress(this.recentData[0].id)
           } else {
               console.log('Hi2')
-              console.log(data.message);
+
             }
         },
         error: (error) => {
@@ -186,7 +216,7 @@ paid: string | null ='false'
       });
       this.apiService.get('api/user/quotes', headers).subscribe({
         next: (data) => {
-         console.log(data)
+
             // Do something with the response data here
           if (data.status == 'success') {
 
@@ -194,7 +224,7 @@ paid: string | null ='false'
 
             console.log(this.quoteData)
           } else {
-            console.log(data.message);
+
           }
         },
         error: (error) => {
@@ -227,7 +257,7 @@ paid: string | null ='false'
 
           } else {
 
-              console.log(data.message);
+
             }
         },
         error: (error) => {

@@ -1,0 +1,57 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" slot="start" size="large" [routerLink]="['/tabs/home']"></ion-icon>
+    <ion-title class="ion-text-center">Success Point</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="ion-text-center" style="margin-top: 2rem;">
+
+    <img src="../../assets/reward.png" height="150px">
+    <h4>{{ firstname }} {{ lastname }}</h4>
+
+    <div>
+      <ion-chip (click)="copy($event, profile.referal_code)">
+
+        <ion-label>Refferal code: <strong>{{ profile.referal_code }}</strong></ion-label>
+        <ion-icon name="copy-outline"></ion-icon>
+      </ion-chip>
+
+
+        <ion-chip>
+          <ion-label style="color: green; "><strong>{{ successPoint }}</strong> </ion-label>&nbsp;
+          <ion-label> Points</ion-label>
+          <ion-avatar>
+            <img alt="success" src="../../assets/icon/icon.png" />
+          </ion-avatar>
+        </ion-chip>
+    </div>
+  </div>
+
+  <ion-item class="card" lines="none" *ngFor="let item of successHostory">
+    <ion-label slot="start" >
+      <h3>{{ item.points }} points gain</h3>
+      <p>{{ item.descriptions }}</p>
+    </ion-label>
+
+
+    <ion-label slot="end" >
+      <h4>{{ item.created_at | date:'dd/MM/yyyy'}}</h4>
+      <h4>
+        <ion-icon name="radio-button-on-outline" color="success"></ion-icon>
+      </h4>
+
+
+    </ion-label>
+
+  </ion-item>
+
+<ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false" side="bottom" alignment="start">
+  <ng-template>
+    <ion-content class="ion-padding">Copied!</ion-content>
+  </ng-template>
+</ion-popover>
+</ion-content>

@@ -38,24 +38,20 @@ export class ProfilePage implements OnInit {
     this.lastname = localStorage.getItem('lastname')
   }
   ionViewWillEnter() {
-  this.refreshPage();
-}
+    this.refreshPage();
+  }
 
 
   async copy(ev: any, data: string) {
      await Clipboard.write({
-    string: data + this.profile.referal_code
+    string: data
      });
      this.presentPopover(ev)
-
   }
   logOut() {
-
     sessionStorage.clear()
     localStorage.clear();
     this.router.navigateByUrl('/login');
-
-
   }
 
   getProfile(){

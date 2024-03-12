@@ -20,7 +20,7 @@
 
 
         <div class="ion-text-center">
-          <ion-chip  (click)="copy($event, 'AD32ER')">
+          <ion-chip  (click)="copy($event, profile.referal_code)">
 
             <ion-label>Refferal code: <strong>{{ profile.referal_code }}</strong></ion-label>
             <ion-icon name="copy-outline"></ion-icon>
@@ -37,7 +37,7 @@
               style="margin-right: 5px; margin-left: -7px;"></ion-icon>
             <div class="d-flex flex-column align-items-end">
               <h6 class="no-wrap">Reffered</h6>
-              <ion-text>30</ion-text>
+              <ion-text>{{ profile.no_of_referals }}</ion-text>
             </div>
           </ion-item>
         </div>
@@ -50,21 +50,21 @@
               <ion-icon name="cloud-download-outline"  color="white" size="medium" slot="start"
               style="margin-right: 5px; margin-left: -7px;"></ion-icon>
             <div class="d-flex flex-column align-items-end">
-              <h6 class="no-wrap">Download</h6>
-              <ion-text>30</ion-text>
+              <h6 class="no-wrap">Total Points</h6>
+              <ion-text>{{ profile.points }}</ion-text>
             </div>
           </ion-item>
         </div>
       </ion-col>
     </ion-row>
    </ion-grid>
-   <div class="ion-text-center">
+   <!-- <div class="ion-text-center">
     <ion-chip (click)="copy($event, 'https://successbox.net/')">
 
       <ion-label>Referral link: <strong>https://successbox.net/{{ profile.referal_code }}</strong></ion-label>
     <ion-icon name="copy-outline"></ion-icon>
     </ion-chip>
-   </div>
+   </div> -->
 <div class="item">
 
 

@@ -19,7 +19,14 @@
     <ion-label   [routerLink]="['/tabs/profile']">{{ firstname }} {{ lastname }}</ion-label>
 
 
-    <ion-icon name="chatbubbles" [routerLink]="['/chat']" slot="end" color="black"></ion-icon>
+    <ion-chip slot="end" [routerLink]="['/tabs/success']">
+      <ion-label style="color: green; "><strong>{{ successPoint }}</strong> </ion-label>&nbsp;
+      <ion-label> Points</ion-label>
+      <ion-avatar>
+        <img alt="success" src="../../assets/icon/icon.png" />
+      </ion-avatar>
+    </ion-chip>
+    <!-- <ion-icon name="chatbubbles" [routerLink]="['/chat']" slot="end" color="black"></ion-icon> -->
 
 
     </ion-item>
